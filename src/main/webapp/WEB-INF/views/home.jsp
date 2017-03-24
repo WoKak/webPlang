@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
     <head>
@@ -14,9 +15,9 @@
         <h2>Platformie stworzonej do nauki języków obcych.</h2>
         <nav>
             <ul>
-                <li><a href="">strona główna</a></li>
-                <li><a href="">aplikacja</a></li>
-                <li><a href="">o aplikacji</a></li>
+                <li><a href=" <spring:url value="/home"/> ">strona główna</a></li>
+                <li><a href=" <spring:url value="/application"/> ">aplikacja</a></li>
+                <li><a href=" <spring:url value="/about"/> ">o aplikacji</a></li>
             </ul>
         </nav>
     </header>

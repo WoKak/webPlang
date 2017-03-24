@@ -1,0 +1,72 @@
+.application_box {
+    border: 2px solid #000000;
+    width: 500px;
+    height: 300px;
+    margin: 20px auto 20px auto;
+    background: url("images/app_background.jpg");
+}
+
+.word_in_polish label {
+    margin-bottom: 20px;
+    color: white;
+    height: 50px;
+    width: 200px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+    text-decoration-style: solid;
+}
+
+.word_in_english textarea {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 50px;
+    width: 400px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
+#ok_button {
+    border: 8px solid #73a9ff;
+    border-radius: 25%;
+    background: white;
+    color: black;
+    width: 100px;
+    height: 50px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+}
+
+#next_button {
+    border: 8px solid #73a9ff;
+    border-radius: 25%;
+    background: white;
+    color: black;
+    width: 100px;
+    height: 50px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+}
+
+#next_button:hover {
+    border: 8px solid #73a9ff;
+    border-radius: 25%;
+    background: #65a1c4;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+}
+
+#ok_button:hover {
+    border: 8px solid #73a9ff;
+    border-radius: 25%;
+    background: #65a1c4;
+    color: white;
+    width: 100px;
+    height: 50px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+}
