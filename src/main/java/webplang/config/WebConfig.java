@@ -1,4 +1,4 @@
-package webplang.web;
+package webplang.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

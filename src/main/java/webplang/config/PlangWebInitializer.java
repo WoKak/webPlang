@@ -2,8 +2,6 @@ package webplang.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import webplang.web.WebConfig;
-
 public class PlangWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
   
   @Override
