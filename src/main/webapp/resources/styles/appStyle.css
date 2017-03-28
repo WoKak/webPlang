@@ -3,28 +3,17 @@
     width: 500px;
     height: 300px;
     margin: 20px auto 20px auto;
-    background: url("images/app_background.jpg");
+    background: #fff388;
 }
 
 .word_in_polish label {
     margin-bottom: 20px;
-    color: white;
+    color: black;
     height: 50px;
     width: 200px;
     font-family: "Comic Sans MS";
     font-size: large;
     text-decoration-style: solid;
-}
-
-.word_in_english textarea {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 50px;
-    width: 400px;
-    font-family: "Comic Sans MS";
-    font-size: large;
-    border: 1px solid black;
-    border-radius: 10%;
 }
 
 #ok_button {

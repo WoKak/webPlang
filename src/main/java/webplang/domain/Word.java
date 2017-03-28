@@ -8,7 +8,7 @@ public class Word {
     private String wordInEnglish;
     private String wordInPolish;
 
-    public Word(String wordInEnglish, String wordInPolish) {
+    public Word(String wordInPolish, String wordInEnglish) {
         this.wordInEnglish = wordInEnglish;
         this.wordInPolish = wordInPolish;
     }
@@ -32,5 +32,13 @@ public class Word {
 
     public void setWordInPolish(String wordInPolish) {
         this.wordInPolish = wordInPolish;
+    }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+                "wordInEnglish='" + wordInEnglish + '\'' +
+                ", wordInPolish='" + wordInPolish + '\'' +
+                '}';
     }
 }

@@ -27,10 +27,15 @@
     </nav>
     <div class="application_box">
         <div class="word_in_polish">
-            <label>Aby rozpocząć naciśnij przycisk ok.</label>
+            <label>Wprowadź słówko jakie ma zostać dodane do bazy danych.</label>
         </div>
-        <form:form modelAttribute="userAnswer">
+        <form:form modelAttribute="wordToAdd">
             <div class="form-group">
+                <label for="wordInPolish">PL:</label>
+                <form:input id="wordInPolish" path="wordInPolish" type="text"/>
+            </div>
+            <div class="form-group">
+                <label for="wordInEnglish">EN:</label>
                 <form:input id="wordInEnglish" path="wordInEnglish" type="text"/>
             </div>
             <div class="form-group">

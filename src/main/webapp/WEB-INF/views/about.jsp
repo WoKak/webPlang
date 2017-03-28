@@ -7,10 +7,10 @@
         <title>plang</title>
         <link rel="stylesheet"
               type="text/css"
-              href="<c:url value="/resources/homeStyle.css" />" >
+              href="<c:url value="/resources/styles/homeStyle.css" />" >
         <link rel="stylesheet"
               type="text/css"
-              href="<c:url value="/resources/aboutStyle.css" />" >
+              href="<c:url value="/resources/styles/aboutStyle.css" />" >
     </head>
 <body>
 <header>
@@ -19,6 +19,7 @@
         <ul>
             <li><a href=" <spring:url value="/home"/> ">strona główna</a></li>
             <li><a href=" <spring:url value="/application"/> ">aplikacja</a></li>
+            <li><a href=" <spring:url value="/addWord"/> ">dodaj słówko</a></li>
             <li><a href=" <spring:url value="/about"/> ">o aplikacji</a></li>
         </ul>
     </nav>
