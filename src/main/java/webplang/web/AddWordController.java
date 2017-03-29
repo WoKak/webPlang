@@ -1,5 +1,10 @@
 package webplang.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -7,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import webplang.domain.Word;
 import webplang.config.JdbcConfig;
 
+import javax.sql.DataSource;
 import java.io.IOException;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.Optional;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -22,7 +26,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 @RequestMapping("/addWord")
+@PropertySource(value = {"classpath:database/database.properties"})
 public class AddWordController {
+
+    DataSource ds;
 
     @RequestMapping(method = GET)
     public String getWordInEnglishFromApplicationForm(Model model) {
@@ -35,8 +42,9 @@ public class AddWordController {
     @RequestMapping(method = POST)
     public String processApplicationForm(@ModelAttribute("wordToAdd") Word wordToAdd) {
 
+        try  {
 
-        try (java.sql.Connection conn = JdbcConfig.getConnection()) {
+            Connection conn = ds.getConnection();
 
             Statement stat = conn.createStatement();
             Integer size = 0;
@@ -55,10 +63,9 @@ public class AddWordController {
             pstat.executeUpdate();
 
         } catch (SQLException ex) {
-            System.out.println("SQL error!");
-        } catch (IOException ex) {
-            System.out.println("IO error!");
+
             ex.printStackTrace();
+
         }
 
         return "addWord";

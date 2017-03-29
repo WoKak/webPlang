@@ -2,35 +2,41 @@ package webplang.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Properties;
 
 /**
  * Created by Michał on 2017-03-28.
  */
+
+@Configuration
+
 public class JdbcConfig {
+
+    @Autowired
+    private Environment env;
 
     @Bean
     public DataSource dataSource() {
-        //return new ?
-    }
 
-    @Bean
-    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
-        return new JdbcTemplate(dataSource);
-    }
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName(env.getRequiredProperty("jdbc.drivers"));
+        ds.setUrl(env.getRequiredProperty("jdbc.url"));
+        ds.setUsername(env.getRequiredProperty("jdbc.username"));
+        ds.setPassword(env.getRequiredProperty("jdbc.password"));
 
+        return ds;
+    }
     /*public static java.sql.Connection getConnection() throws SQLException, IOException {
 
         Properties props = new Properties();
