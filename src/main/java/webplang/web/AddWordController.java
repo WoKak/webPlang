@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import webplang.domain.Word;
-import webplang.config.Connection;
+import webplang.config.JdbcConfig;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -36,7 +36,7 @@ public class AddWordController {
     public String processApplicationForm(@ModelAttribute("wordToAdd") Word wordToAdd) {
 
 
-        try (java.sql.Connection conn = Connection.getConnection()) {
+        try (java.sql.Connection conn = JdbcConfig.getConnection()) {
 
             Statement stat = conn.createStatement();
             Integer size = 0;
