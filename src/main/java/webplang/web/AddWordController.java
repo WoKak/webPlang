@@ -10,12 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import webplang.domain.Word;
-import webplang.config.JdbcConfig;
 
 import javax.sql.DataSource;
-import java.io.IOException;
 import java.sql.*;
-import java.util.Optional;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -29,7 +26,23 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @PropertySource(value = {"classpath:database/database.properties"})
 public class AddWordController {
 
-    DataSource ds;
+    @Autowired
+    private Environment env;
+
+    @Bean
+    public DataSource dataSource() {
+
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName(env.getRequiredProperty("jdbc.drivers"));
+        ds.setUrl(env.getRequiredProperty("jdbc.url"));
+        ds.setUsername(env.getRequiredProperty("jdbc.username"));
+        ds.setPassword(env.getRequiredProperty("jdbc.password"));
+
+        return ds;
+    }
+
+    @Autowired
+    private DataSource ds;
 
     @RequestMapping(method = GET)
     public String getWordInEnglishFromApplicationForm(Model model) {
