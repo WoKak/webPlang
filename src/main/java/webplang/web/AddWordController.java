@@ -59,20 +59,11 @@ public class AddWordController {
 
             Connection conn = ds.getConnection();
 
-            Statement stat = conn.createStatement();
-            Integer size = 0;
+            String insert = "INSERT INTO words (wordInPolish, wordInEnglish) VALUES (?, ?)";
 
-            try (ResultSet result = stat.executeQuery("SELECT * FROM Main")) {
-                while (result.next())
-                    size++;
-            }
-
-            String insertUpdate = "INSERT INTO Main VALUES (?, ?, ?)";
-
-            PreparedStatement pstat = conn.prepareStatement(insertUpdate);
+            PreparedStatement pstat = conn.prepareStatement(insert);
             pstat.setString(1, wordToAdd.getWordInPolish());
             pstat.setString(2, wordToAdd.getWordInEnglish());
-            pstat.setString(3, size.toString());
             pstat.executeUpdate();
 
         } catch (SQLException ex) {
