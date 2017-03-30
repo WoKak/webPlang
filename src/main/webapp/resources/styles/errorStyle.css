@@ -1,0 +1,12 @@
+.about_box {
+    border: 2px solid #000000;
+    width: 500px;
+    height: 300px;
+    margin: 20px auto 20px auto;
+    background: #ff433e;
+    text-align: justify;
+}
+
+.about_box p {
+    margin: 20px;
+}
