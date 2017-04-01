@@ -13,10 +13,7 @@ public class Word {
         this.wordInPolish = wordInPolish;
     }
 
-    public Word() {
-        this.wordInEnglish = "";
-        this.wordInPolish = "";
-    }
+    public Word() {}
 
     public String getWordInEnglish() {
         return wordInEnglish;

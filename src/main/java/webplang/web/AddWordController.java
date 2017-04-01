@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Word;
 import webplang.domain.service.AddWordService;
-import webplang.exception.WordInBaseException;
-
-import java.io.IOException;
+import webplang.exception.AddWordToBaseException;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -33,7 +31,7 @@ public class AddWordController {
     }
 
     @RequestMapping(method = GET)
-    public String getWordInEnglishFromApplicationForm(Model model) {
+    public String getWordToAddFromAddWordForm(Model model) {
 
         Word wordToAdd = new Word();
         model.addAttribute("wordToAdd", wordToAdd);
@@ -41,16 +39,16 @@ public class AddWordController {
     }
 
     @RequestMapping(method = POST)
-    public String processApplicationForm(@ModelAttribute("wordToAdd") Word wordToAdd) throws IOException {
+    public String processApplicationForm(@ModelAttribute("wordToAdd") Word wordToAdd) {
 
         this.addWordService.addWord(wordToAdd);
 
         return "redirect:/home";
     }
 
-    @ExceptionHandler(WordInBaseException.class)
-    public ModelAndView handleError(WordInBaseException exception) {
+    @ExceptionHandler(AddWordToBaseException.class)
+    public ModelAndView handleAddWordToBaseException(AddWordToBaseException exception) {
 
-        return this.addWordService.handleWordInBaseException(exception);
+        return this.addWordService.handleAddWordToBaseException(exception);
     }
 }

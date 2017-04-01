@@ -1,12 +1,11 @@
 package webplang.domain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Word;
-import webplang.exception.WordInBaseException;
+import webplang.exception.AddWordToBaseException;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -42,7 +41,7 @@ public class AddWordService {
 
 
             if (result.next()) {
-                throw new WordInBaseException(wordToAdd.getWordInPolish());
+                throw new AddWordToBaseException("Słówko '" + wordToAdd.getWordInPolish() + "' jest już w bazie.");
             }
 
 
@@ -60,11 +59,11 @@ public class AddWordService {
         }
     }
 
-    public ModelAndView handleWordInBaseException(WordInBaseException exception) {
+    public ModelAndView handleAddWordToBaseException(AddWordToBaseException exception) {
 
         ModelAndView mav = new ModelAndView();
-        mav.addObject("invalidWord", exception.getWordInPolish());
-        mav.setViewName("wordInBase");
+        mav.addObject("message", exception.getMessage());
+        mav.setViewName("addWordError");
         return mav;
     }
 }

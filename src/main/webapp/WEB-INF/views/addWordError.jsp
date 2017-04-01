@@ -25,7 +25,7 @@
     </nav>
     <div class="about_box">
         <p>
-            Słówko "${invalidWord}" jest już w bazie danych.
+            ${message}
         </p>
     </div>
 </header>
