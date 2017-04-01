@@ -26,8 +26,8 @@
     <div class="about_box">
         <p>
             Aplikacja powstaje od końca listopada 2016 r. Na początku był to prosty projekt Maven, nastepnie został
-            rozbudowany <br>o monitor postępu, później powstawały kolejne części programu, takie jak: gui w javafx,
-            dodanie bazy danych, refaktoryzacja pod Java 8. Obecnie całość jest przepisywana na webPlang w oparciu
+            rozbudowany o moduł prezentowania postępów, później powstawały kolejne części programu, takie jak: gui w javafx,
+            integracja z bazą danych, refaktoryzacja pod Java 8. Obecnie od marca 2017 r. całość jest przepisywana na webPlang w oparciu
             o framework Spring.
         </p>
     </div>

@@ -27,7 +27,7 @@
     </nav>
     <div class="application_box">
         <div class="word_in_polish">
-            <label>Wprowadź słówko jakie ma zostać dodane do bazy danych.</label>
+            <label>Wprowadź słówko do dodania do bazy danych.</label>
         </div>
         <form:form modelAttribute="wordToAdd">
             <div class="form-group">
