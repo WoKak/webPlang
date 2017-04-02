@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Word;
-import webplang.domain.service.AddWordService;
+import webplang.service.AddWordService;
 import webplang.exception.AddWordToBaseException;
 
 import javax.validation.Valid;

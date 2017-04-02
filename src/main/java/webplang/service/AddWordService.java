@@ -1,9 +1,8 @@
-package webplang.domain.service;
+package webplang.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Word;
 import webplang.exception.AddWordToBaseException;
