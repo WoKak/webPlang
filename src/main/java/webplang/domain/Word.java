@@ -1,11 +1,19 @@
 package webplang.domain;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Created by Michał on 2017-03-26.
  */
 public class Word {
 
+    @NotNull
+    @Size(min = 2, max = 50)
     private String wordInEnglish;
+
+    @NotNull
+    @Size(min = 2, max = 50)
     private String wordInPolish;
 
     public Word(String wordInPolish, String wordInEnglish) {

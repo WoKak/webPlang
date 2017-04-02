@@ -2,6 +2,7 @@ package webplang.domain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Word;
@@ -27,9 +28,13 @@ public class AddWordService {
         this.dataSource = ds;
     }
 
-    public void addWord(Word wordToAdd) {
+    public void addWord(Word wordToAdd, BindingResult bindingResult) {
 
         try {
+
+            if (bindingResult.hasErrors()) {
+                throw new AddWordToBaseException("Błąd walidacji! Słówka muszą być długości od 2 do 50 znaków!");
+            }
 
             Connection conn = dataSource.getConnection();
 

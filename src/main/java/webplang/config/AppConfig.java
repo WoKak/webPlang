@@ -1,12 +1,16 @@
 package webplang.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
+import javax.annotation.Resources;
 import javax.sql.DataSource;
 
 /**
@@ -16,6 +20,7 @@ import javax.sql.DataSource;
 @Configuration
 @PropertySource(value = {"classpath:database/database.properties"})
 public class AppConfig {
+
 
     @Autowired
     private Environment env;
@@ -30,5 +35,12 @@ public class AppConfig {
         ds.setPassword(env.getRequiredProperty("jdbc.password"));
 
         return ds;
+    }
+
+    @Bean
+    public LocalValidatorFactoryBean validator() {
+
+        LocalValidatorFactoryBean v = new LocalValidatorFactoryBean();
+        return  v;
     }
 }

@@ -3,6 +3,7 @@ package webplang.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Word;
 import webplang.domain.service.AddWordService;
 import webplang.exception.AddWordToBaseException;
+
+import javax.validation.Valid;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -39,9 +42,9 @@ public class AddWordController {
     }
 
     @RequestMapping(method = POST)
-    public String processApplicationForm(@ModelAttribute("wordToAdd") Word wordToAdd) {
+    public String processAddNewWordForm(@ModelAttribute("wordToAdd") @Valid Word wordToAdd, BindingResult result) {
 
-        this.addWordService.addWord(wordToAdd);
+        this.addWordService.addWord(wordToAdd, result);
 
         return "redirect:/home";
     }
