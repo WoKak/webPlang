@@ -21,6 +21,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping("/application")
 public class ApplicationController {
 
+    private int idx = 0;
+
     private CreateExerciseService ces;
     private Exercise exercise;
     private ProcessUserAnswerService pua;
@@ -37,22 +39,26 @@ public class ApplicationController {
     @RequestMapping(method = GET)
     public String getWordInEnglishFromApplicationForm(Model model) {
 
+        model.addAttribute("wordToTranslate", exercise.getWords().get(idx).getWordInPolish());
+
         Answer userAnswer = new Answer();
         model.addAttribute("userAnswer", userAnswer);
         return "application";
     }
 
     @RequestMapping(method = POST)
-    public String processApplicationForm(@ModelAttribute("userAnswer") Answer userAnswer) {
+    public String processApplicationForm(Model model, @ModelAttribute("userAnswer") Answer userAnswer) {
 
         if (this.pua.checkAnswer(userAnswer, this.exercise)) {
 
-            System.out.println("Dobrze!");
+            model.addAttribute("wordToTranslate", "Dobrze!");
 
         } else {
 
-            System.out.print("Źle!");
+            model.addAttribute("wordToTranslate", "Źle!");
         }
+
+        idx++;
 
         return "application";
     }

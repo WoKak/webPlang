@@ -15,6 +15,6 @@ public class ProcessUserAnswerService {
 
         String result = exercise.findWordInPl(answer.getWordInEnglish());
 
-        return result.equals("ERROR");
+        return !result.equals("ERROR");
     }
 }
