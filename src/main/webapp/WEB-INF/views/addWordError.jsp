@@ -13,7 +13,6 @@
               href="<c:url value="/resources/styles/errorStyle.css" />" >
     </head>
 <body>
-<header>
     <h2>Błąd aplikacji!</h2>
     <nav>
         <ul>
@@ -28,6 +27,5 @@
             ${message}
         </p>
     </div>
-</header>
 </body>
 </html>

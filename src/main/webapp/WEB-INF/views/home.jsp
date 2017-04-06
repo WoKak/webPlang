@@ -10,7 +10,6 @@
               href="<c:url value="/resources/styles/homeStyle.css" />" >
 </head>
 <body>
-    <header>
         <h1>Witam w serwisie plang!</h1>
         <h2>Platformie stworzonej do nauki języków obcych.</h2>
         <nav>
@@ -21,6 +20,5 @@
                 <li><a href=" <spring:url value="/about"/> ">o aplikacji</a></li>
             </ul>
         </nav>
-    </header>
 </body>
 </html>

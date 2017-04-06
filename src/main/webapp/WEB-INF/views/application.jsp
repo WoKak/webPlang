@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <head>
+
         <title>plang</title>
         <link rel="stylesheet"
               type="text/css"
@@ -13,9 +13,15 @@
         <link rel="stylesheet"
               type="text/css"
               href="<c:url value="/resources/styles/appStyle.css" />">
-    </head>
+</head>
 <body>
-<header>
+    <script>
+        document.getElementById('ok_button').onclick = test;
+
+        function f(){
+            document.getElementById('wip').innerHTML = "ala ma kota";
+        }
+    </script>
     <h2>plang</h2>
     <nav>
         <ul>
@@ -27,17 +33,16 @@
     </nav>
     <div class="application_box">
         <div class="word_in_polish">
-            <label>Aby rozpocząć naciśnij przycisk ok.</label>
+            <label id="wip">Aby rozpocząć naciśnij przycisk ok.</label>
         </div>
         <form:form modelAttribute="userAnswer">
             <div class="form-group">
                 <form:input id="wordInEnglish" path="wordInEnglish" type="text"/>
             </div>
             <div class="form-group">
-                <input type="submit" id="ok_button" value="OK"/>
+                <input type="submit" id="ok_button" value="OK" onclick="f()"/>
             </div>
         </form:form>
     </div>
-</header>
 </body>
 </html>

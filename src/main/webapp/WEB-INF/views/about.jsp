@@ -13,7 +13,6 @@
               href="<c:url value="/resources/styles/aboutStyle.css" />" >
     </head>
 <body>
-<header>
     <h2>Historia aplikacji.</h2>
     <nav>
         <ul>
@@ -31,6 +30,5 @@
             o framework Spring.
         </p>
     </div>
-</header>
 </body>
 </html>

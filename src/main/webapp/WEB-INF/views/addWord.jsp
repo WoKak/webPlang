@@ -15,7 +15,6 @@
               href="<c:url value="/resources/styles/appStyle.css" />">
     </head>
 <body>
-<header>
     <h2>plang</h2>
     <nav>
         <ul>
@@ -43,6 +42,5 @@
             </div>
         </form:form>
     </div>
-</header>
 </body>
 </html>

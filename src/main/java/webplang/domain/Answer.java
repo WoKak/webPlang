@@ -5,7 +5,7 @@ package webplang.domain;
  */
 public class Answer {
 
-    public String wordInEnglish;
+    private String wordInEnglish;
 
     public Answer(String wordInEnglish) {
         this.wordInEnglish = wordInEnglish;
