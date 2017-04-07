@@ -28,28 +28,21 @@ public class ProcessUserAnswerService {
 
             apc.setIdx(apc.getIdx() + 1);
             apc.setPts(apc.getPts() + 1);
-            if (apc.getIdx() >= 20) {
-                throw new ApplicationException("Koniec ćwiczenia!\nMasz " + apc.getPts() +" punktów!");
-            }
             model.addAttribute("result", "Dobrze! - Masz już: " + apc.getPts() + " pkt.");
             model.addAttribute("wordToTranslate", exercise.getWords().get(apc.getIdx()).getWordInPolish());
 
         } else {
 
             apc.setIdx(apc.getIdx() + 1);
-
-            if (apc.getIdx() >= 20) {
-                throw new ApplicationException("Koniec ćwiczenia! Masz " + apc.getPts() +" punktów!");
-            }
             model.addAttribute("result", "Źle! - Masz już: " + apc.getPts() + " pkt.");
             model.addAttribute("wordToTranslate", exercise.getWords().get(apc.getIdx()).getWordInPolish());
         }
     }
 
-    public ModelAndView handleApplicationException(ApplicationException exception) {
+    public ModelAndView handleApplicationException() {
 
         ModelAndView mav = new ModelAndView();
-        mav.addObject("message", exception.getMessage());
+        mav.addObject("message", "Koniec ćwiczenia!");
         mav.setViewName("appExeption");
         return mav;
     }

@@ -56,9 +56,9 @@ public class ApplicationController {
         return "application";
     }
 
-    @ExceptionHandler(ApplicationException.class)
-    public ModelAndView handleAddWordToBaseException(ApplicationException exception) {
+    @ExceptionHandler(IndexOutOfBoundsException.class)
+    public ModelAndView handleAppException() {
 
-        return this.pua.handleApplicationException(exception);
+        return this.pua.handleApplicationException();
     }
 }
