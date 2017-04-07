@@ -32,7 +32,7 @@
         </ul>
     </nav>
     <div class="application_box">
-        <div class="word_in_polish">
+        <div class="appText">
             <label id="wtt">${wordToTranslate}</label>
         </div>
         <form:form modelAttribute="userAnswer">
@@ -43,6 +43,9 @@
                 <input type="submit" id="ok_button" value="OK"/>
             </div>
         </form:form>
+        <div class="appText">
+            <label id="res">${result}</label>
+        </div>
     </div>
 </body>
 </html>

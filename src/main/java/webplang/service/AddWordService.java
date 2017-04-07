@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Word;
-import webplang.exception.AddWordToBaseException;
+import webplang.exception.ApplicationException;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -32,7 +32,7 @@ public class AddWordService {
         try {
 
             if (bindingResult.hasErrors()) {
-                throw new AddWordToBaseException("Błąd walidacji! Słówka muszą być długości od 2 do 50 znaków!");
+                throw new ApplicationException("Błąd walidacji! Słówka muszą być długości od 2 do 50 znaków!");
             }
 
             Connection conn = dataSource.getConnection();
@@ -45,7 +45,7 @@ public class AddWordService {
 
 
             if (result.next()) {
-                throw new AddWordToBaseException("Słówko '" + wordToAdd.getWordInPolish() + "' jest już w bazie.");
+                throw new ApplicationException("Słówko '" + wordToAdd.getWordInPolish() + "' jest już w bazie.");
             }
 
 
@@ -63,11 +63,11 @@ public class AddWordService {
         }
     }
 
-    public ModelAndView handleAddWordToBaseException(AddWordToBaseException exception) {
+    public ModelAndView handleApplicationException(ApplicationException exception) {
 
         ModelAndView mav = new ModelAndView();
         mav.addObject("message", exception.getMessage());
-        mav.setViewName("addWordError");
+        mav.setViewName("appExeption");
         return mav;
     }
 }

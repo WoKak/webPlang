@@ -13,7 +13,7 @@
               href="<c:url value="/resources/styles/errorStyle.css" />" >
     </head>
 <body>
-    <h2>Błąd aplikacji!</h2>
+    <h2>plang</h2>
     <nav>
         <ul>
             <li><a href=" <spring:url value="/home"/> ">strona główna</a></li>

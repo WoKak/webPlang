@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Word;
 import webplang.service.AddWordService;
-import webplang.exception.AddWordToBaseException;
+import webplang.exception.ApplicationException;
 
 import javax.validation.Valid;
 
@@ -49,9 +49,9 @@ public class AddWordController {
         return "redirect:/home";
     }
 
-    @ExceptionHandler(AddWordToBaseException.class)
-    public ModelAndView handleAddWordToBaseException(AddWordToBaseException exception) {
+    @ExceptionHandler(ApplicationException.class)
+    public ModelAndView handleAddWordToBaseException(ApplicationException exception) {
 
-        return this.addWordService.handleAddWordToBaseException(exception);
+        return this.addWordService.handleApplicationException(exception);
     }
 }
