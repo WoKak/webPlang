@@ -1,8 +1,8 @@
-#webPlang
+# webPlang
 
 this is a web platform for learning language
 
-##Technology stack
+## Technology stack
 
 * Java 8
 * Maven 3.3.9
@@ -11,12 +11,12 @@ this is a web platform for learning language
 * Servlet API 3.1
 * PostgreSQL 9.6.2
 
-##Features
+## Features
 
 * Simple exercise testing knowledge of randomly chosen 20 words
 * Adding words to database
 
-##To run this project you need:
+## To run this project you need:
 
 - PostgreSQL and proper table in database used by program
 - Tomacat server
