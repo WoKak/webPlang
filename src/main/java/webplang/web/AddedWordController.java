@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Word;
-import webplang.service.AddWordService;
+import webplang.service.WordService;
 import webplang.exception.ApplicationException;
 
 import javax.validation.Valid;
@@ -23,13 +23,13 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
 @RequestMapping("/addWord")
-public class AddWordController {
+public class AddedWordController {
 
 
-    private AddWordService addWordService;
+    private WordService addWordService;
 
     @Autowired
-    public AddWordController(AddWordService aws) {
+    public AddedWordController(WordService aws) {
         this.addWordService = aws;
     }
 

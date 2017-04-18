@@ -2,7 +2,7 @@ package webplang.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import webplang.domain.Exercise;
+import webplang.domain.ExerciseConfig;
 import webplang.domain.Word;
 
 import javax.sql.DataSource;
@@ -15,16 +15,16 @@ import java.util.Random;
  */
 
 @Service
-public class CreateExerciseService {
+public class ExerciseService {
 
     private DataSource dataSource;
 
     @Autowired
-    public CreateExerciseService(DataSource dataSource) {
+    public ExerciseService(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-    public void initializeExercise(Exercise exercise) {
+    public void initializeExercise(ExerciseConfig exercise) {
 
         ArrayList<Integer> alreadyInExercise = new ArrayList<Integer>(0);
         Random random = new Random();

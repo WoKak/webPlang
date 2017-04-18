@@ -1,16 +1,18 @@
 package webplang.domain;
 
+import org.springframework.context.annotation.Bean;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
 /**
  * Created by Michał on 2017-04-02.
  */
-public class Exercise {
+public class ExerciseConfig {
 
     private ArrayList<Word> words;
-
-    public Exercise() {
+    
+    public ExerciseConfig() {
         words = new ArrayList<>(0);
     }
 

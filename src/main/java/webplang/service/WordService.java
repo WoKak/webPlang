@@ -18,12 +18,12 @@ import java.sql.SQLException;
  */
 
 @Service
-public class AddWordService {
+public class WordService {
 
     private DataSource dataSource;
 
     @Autowired
-    public AddWordService(DataSource ds) {
+    public WordService(DataSource ds) {
         this.dataSource = ds;
     }
 

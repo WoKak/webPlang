@@ -15,13 +15,6 @@
               href="<c:url value="/resources/styles/appStyle.css" />">
 </head>
 <body>
-    <script>
-        document.getElementById('ok_button').onclick = test;
-
-        function f(){
-            document.getElementById('wtt').innerHTML = "ala ma kota";
-        }
-    </script>
     <h2>plang</h2>
     <nav>
         <ul>
@@ -44,7 +37,9 @@
             </div>
         </form:form>
         <div class="appText">
-            <label id="res">${result}</label>
+            <label id="result">${result}</label>
+            <br>
+            <label id="points">${points}</label>
         </div>
     </div>
 </body>
