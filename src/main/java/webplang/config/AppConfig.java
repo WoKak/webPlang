@@ -9,6 +9,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import webplang.domain.Exercise;
 
 import javax.annotation.Resources;
 import javax.sql.DataSource;
@@ -42,5 +43,10 @@ public class AppConfig {
 
         LocalValidatorFactoryBean v = new LocalValidatorFactoryBean();
         return  v;
+    }
+
+    @Bean
+    public Exercise exercise() {
+        return new Exercise();
     }
 }

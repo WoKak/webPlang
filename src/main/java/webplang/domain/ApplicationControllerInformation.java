@@ -28,4 +28,12 @@ public class ApplicationControllerInformation {
     public void setPoints(int points) {
         this.points = points;
     }
+
+    @Override
+    public String toString() {
+        return "ApplicationControllerInformation{" +
+                "index=" + index +
+                ", points=" + points +
+                '}';
+    }
 }

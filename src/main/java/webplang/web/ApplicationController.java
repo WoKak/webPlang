@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Answer;
 import webplang.domain.ApplicationControllerInformation;
-import webplang.domain.ExerciseConfig;
+import webplang.domain.Exercise;
 import webplang.service.ExerciseService;
 import webplang.service.AnswerService;
 
@@ -25,17 +25,17 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class ApplicationController {
 
     private ExerciseService exerciseService;
-    private ExerciseConfig exercise;
     private AnswerService answerService;
     private ApplicationControllerInformation applicationControllerInformation;
+    private Exercise exercise;
 
     @Autowired
-    public ApplicationController(ExerciseService es, AnswerService as) {
+    public ApplicationController(ExerciseService es, AnswerService as, Exercise e) {
 
+        this.exercise = e;
         this.exerciseService = es;
         this.answerService = as;
         this.applicationControllerInformation = new ApplicationControllerInformation();
-        this.exercise = new ExerciseConfig();
         this.exerciseService.initializeExercise(this.exercise);
     }
 
@@ -58,6 +58,6 @@ public class ApplicationController {
     @ExceptionHandler(IndexOutOfBoundsException.class)
     public ModelAndView handleAppException() {
 
-        return this.answerService.handleApplicationException();
+        return this.answerService.handleApplicationException(this.applicationControllerInformation);
     }
 }

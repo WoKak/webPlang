@@ -39,6 +39,8 @@
         <div class="appText">
             <label id="result">${result}</label>
             <br>
+            <label id="correct_answer">${correct_answer}</label>
+            <br>
             <label id="points">${points}</label>
         </div>
     </div>

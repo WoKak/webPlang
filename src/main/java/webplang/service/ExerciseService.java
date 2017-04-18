@@ -2,7 +2,7 @@ package webplang.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import webplang.domain.ExerciseConfig;
+import webplang.domain.Exercise;
 import webplang.domain.Word;
 
 import javax.sql.DataSource;
@@ -24,7 +24,10 @@ public class ExerciseService {
         this.dataSource = dataSource;
     }
 
-    public void initializeExercise(ExerciseConfig exercise) {
+    public void initializeExercise(Exercise exercise) {
+
+        if (exercise.getWords().size() == 20)
+            return;
 
         ArrayList<Integer> alreadyInExercise = new ArrayList<Integer>(0);
         Random random = new Random();
