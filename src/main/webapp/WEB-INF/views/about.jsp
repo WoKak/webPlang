@@ -27,7 +27,10 @@
             Aplikacja powstaje od końca listopada 2016 r. Na początku był to prosty projekt Maven, nastepnie został
             rozbudowany o moduł prezentowania postępów, później powstawały kolejne części programu, takie jak: gui w javafx,
             integracja z bazą danych, refaktoryzacja pod Java 8. Obecnie od marca 2017 r. całość jest przepisywana na webPlang w oparciu
-            o framework Spring.
+            o framework Spring. Więcej informacji na
+            <a href="https://github.com/WoKak/webPlang" style="text-decoration: none">
+                stronie
+            </a>.
         </p>
     </div>
 </body>
