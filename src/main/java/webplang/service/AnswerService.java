@@ -16,11 +16,18 @@ public class AnswerService {
 
     public boolean checkAnswer(Answer answer, Exercise exercise, String wordInPl) {
 
-        String result = exercise.findWordInPl(answer.getWordInEnglish());
+        String result = exercise.findWordInPolish(answer.getWordInEnglish());
 
         return result.equals(wordInPl);
     }
 
+    /**
+     * Used for processing main application form - uses checkAnswer method
+     * @param userAnswer - what user typed
+     * @param exercise - current exercise
+     * @param model - model
+     * @param apc - controller information about current exercise
+     */
     public void processApplicationForm(Answer userAnswer, Exercise exercise, Model model, ApplicationControllerInformation apc) {
 
         if ( checkAnswer(userAnswer, exercise, exercise.getWords().get(apc.getIndex()).getWordInPolish()) ) {
@@ -43,6 +50,11 @@ public class AnswerService {
         }
     }
 
+    /**
+     * Handles the main application exceptions
+     * @param apc - controller information about current exercise
+     * @return model and view of the exception page
+     */
     public ModelAndView handleApplicationException(ApplicationControllerInformation apc) {
 
         ModelAndView mav = new ModelAndView();

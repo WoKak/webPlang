@@ -21,6 +21,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  * Created by Michał on 2017-03-28.
  */
 
+/**
+ * Controller of the add word section
+ */
 @Controller
 @RequestMapping("/addWord")
 public class AddedWordController {
@@ -33,6 +36,11 @@ public class AddedWordController {
         this.addWordService = aws;
     }
 
+    /**
+     * Gets text from form then makes new word from it
+     * @param model - model
+     * @return word from form
+     */
     @RequestMapping(method = GET)
     public String getWordToAddFromAddWordForm(Model model) {
 
@@ -41,6 +49,12 @@ public class AddedWordController {
         return "addWord";
     }
 
+    /**
+     * Uses service to add word to database
+     * @param wordToAdd - word from form
+     * @param result - result of validation
+     * @return if everything's ok redirects to the homepage
+     */
     @RequestMapping(method = POST)
     public String processAddNewWordForm(@ModelAttribute("wordToAdd") @Valid Word wordToAdd, BindingResult result) {
 
@@ -49,6 +63,11 @@ public class AddedWordController {
         return "redirect:/home";
     }
 
+    /**
+     * Uses service to handle exception
+     * @param exception - exception thrown during adding
+     * @return - see service docs
+     */
     @ExceptionHandler(ApplicationException.class)
     public ModelAndView handleAddWordToBaseException(ApplicationException exception) {
 

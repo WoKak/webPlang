@@ -1,11 +1,14 @@
 package webplang.domain;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
  * Created by Michał on 2017-03-26.
+ */
+
+/**
+ * Word is validated pair of Strings (polish and english word)
  */
 public class Word {
 

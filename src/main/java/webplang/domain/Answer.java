@@ -3,6 +3,10 @@ package webplang.domain;
 /**
  * Created by Michał on 2017-03-26.
  */
+
+/**
+ * Answer is the text which user type during doing of the exercise
+ */
 public class Answer {
 
     private String wordInEnglish;

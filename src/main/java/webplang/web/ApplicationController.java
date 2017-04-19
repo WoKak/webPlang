@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Answer;
 import webplang.domain.ApplicationControllerInformation;
 import webplang.domain.Exercise;
-import webplang.service.ExerciseService;
 import webplang.service.AnswerService;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -20,6 +19,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
  * Created by Michał on 2017-03-24.
  */
 
+/**
+ * Main application controller
+ */
 @Controller
 @RequestMapping("/application")
 public class ApplicationController {
@@ -36,6 +38,11 @@ public class ApplicationController {
         this.applicationControllerInformation = new ApplicationControllerInformation();
     }
 
+    /**
+     * Gets answer from form
+     * @param model - model
+     * @return new answer created from form
+     */
     @RequestMapping(method = GET)
     public String getWordInEnglishFromApplicationForm(Model model) {
 
@@ -45,6 +52,12 @@ public class ApplicationController {
         return "application";
     }
 
+    /**
+     * Uses service to process answer
+     * @param model - model
+     * @param userAnswer - answer typed by user
+     * @return updated view
+     */
     @RequestMapping(method = POST)
     public String processApplicationForm(Model model, @ModelAttribute("userAnswer") Answer userAnswer) {
 
@@ -52,6 +65,10 @@ public class ApplicationController {
         return "application";
     }
 
+    /**
+     * Uses service to handle main application exception
+     * @return - see service docs
+     */
     @ExceptionHandler(IndexOutOfBoundsException.class)
     public ModelAndView handleAppException() {
 

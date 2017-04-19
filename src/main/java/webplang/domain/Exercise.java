@@ -6,6 +6,10 @@ import java.util.Optional;
 /**
  * Created by Michał on 2017-04-02.
  */
+
+/**
+ * Exercise is the list of words
+ */
 public class Exercise {
 
     private ArrayList<Word> words;
@@ -18,7 +22,7 @@ public class Exercise {
         return words;
     }
 
-    public String findWordInEng(String wordInPolish) {
+    public String findWordInEnglish(String wordInPolish) {
 
         String toReturn = null;
 
@@ -31,7 +35,7 @@ public class Exercise {
         return Optional.ofNullable(toReturn).orElse("ERROR");
     }
 
-    public String findWordInPl(String wordInEnglish){
+    public String findWordInPolish(String wordInEnglish){
 
         String toReturn = null;
 

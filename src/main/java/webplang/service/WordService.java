@@ -27,6 +27,11 @@ public class WordService {
         this.dataSource = ds;
     }
 
+    /**
+     * Checks errors then adds word to the database
+     * @param wordToAdd - word created from the form on website
+     * @param bindingResult - keeps the information about validation errors
+     */
     public void addWord(Word wordToAdd, BindingResult bindingResult) {
 
         try {
@@ -59,10 +64,15 @@ public class WordService {
         } catch (SQLException ex) {
 
             ex.printStackTrace();
-
+            throw new ApplicationException("Błąd SQL! - sprawdź logi");
         }
     }
 
+    /**
+     * Handles the exception
+     * @param exception - exception thrown in the addWord method
+     * @return model and view of the exception page
+     */
     public ModelAndView handleApplicationException(ApplicationException exception) {
 
         ModelAndView mav = new ModelAndView();

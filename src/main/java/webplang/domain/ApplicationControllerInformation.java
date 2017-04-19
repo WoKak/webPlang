@@ -3,6 +3,10 @@ package webplang.domain;
 /**
  * Created by Michał on 2017-04-07.
  */
+
+/**
+ * ApplicationControllerInformation is the two numbers describing current exercise
+ */
 public class ApplicationControllerInformation {
 
     private int index;

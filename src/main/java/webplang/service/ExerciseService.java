@@ -24,6 +24,10 @@ public class ExerciseService {
         this.dataSource = dataSource;
     }
 
+    /**
+     * Initialize exercise - adds words from database
+     * @param exercise - exercise to be initialized
+     */
     public void initializeExercise(Exercise exercise) {
 
         ArrayList<Integer> alreadyInExercise = new ArrayList<Integer>(0);
