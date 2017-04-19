@@ -24,19 +24,16 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RequestMapping("/application")
 public class ApplicationController {
 
-    private ExerciseService exerciseService;
     private AnswerService answerService;
     private ApplicationControllerInformation applicationControllerInformation;
     private Exercise exercise;
 
     @Autowired
-    public ApplicationController(ExerciseService es, AnswerService as, Exercise e) {
+    public ApplicationController(AnswerService as, Exercise e) {
 
         this.exercise = e;
-        this.exerciseService = es;
         this.answerService = as;
         this.applicationControllerInformation = new ApplicationControllerInformation();
-        this.exerciseService.initializeExercise(this.exercise);
     }
 
     @RequestMapping(method = GET)

@@ -10,6 +10,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import webplang.domain.Exercise;
+import webplang.service.ExerciseService;
 
 import javax.annotation.Resources;
 import javax.sql.DataSource;
@@ -47,6 +48,10 @@ public class AppConfig {
 
     @Bean
     public Exercise exercise() {
-        return new Exercise();
+
+        Exercise e = new Exercise();
+        ExerciseService es = new ExerciseService(dataSource());
+        es.initializeExercise(e);
+        return e;
     }
 }

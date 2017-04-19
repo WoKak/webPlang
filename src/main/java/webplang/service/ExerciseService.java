@@ -26,9 +26,6 @@ public class ExerciseService {
 
     public void initializeExercise(Exercise exercise) {
 
-        if (exercise.getWords().size() == 20)
-            return;
-
         ArrayList<Integer> alreadyInExercise = new ArrayList<Integer>(0);
         Random random = new Random();
         String query = "SELECT * FROM words WHERE id = CAST(? AS integer)";
