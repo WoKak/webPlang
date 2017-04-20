@@ -50,4 +50,22 @@ public class Word {
                 ", wordInPolish='" + wordInPolish + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Word word = (Word) o;
+
+        if (!wordInEnglish.equals(word.wordInEnglish)) return false;
+        return wordInPolish.equals(word.wordInPolish);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = wordInEnglish.hashCode();
+        result = 31 * result + wordInPolish.hashCode();
+        return result;
+    }
 }

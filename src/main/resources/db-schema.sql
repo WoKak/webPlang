@@ -2,7 +2,7 @@ DROP TABLE words
 IF EXISTS;
 
 CREATE TABLE words (
-    id integer NOT NULL,
+    id integer,
     wordinpolish character(50),
     wordinenglish character(50)
 );

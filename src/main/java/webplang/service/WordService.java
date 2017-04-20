@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 /**
  * Created by Michał on 2017-04-01.
@@ -36,9 +37,10 @@ public class WordService {
 
         try {
 
-            if (bindingResult.hasErrors()) {
-                throw new ApplicationException("Błąd walidacji! Słówka muszą być długości od 2 do 50 znaków!");
-            }
+            if (Optional.ofNullable(bindingResult).isPresent())
+                if (bindingResult.hasErrors()) {
+                    throw new ApplicationException("Błąd walidacji! Słówka muszą być długości od 2 do 50 znaków!");
+                }
 
             Connection conn = dataSource.getConnection();
 
