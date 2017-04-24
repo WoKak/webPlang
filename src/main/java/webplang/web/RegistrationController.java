@@ -9,13 +9,12 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 /**
  * Created by Michał on 2017-04-24.
  */
-
 @Controller
-@RequestMapping("/application")
-public class ApplicationController {
+@RequestMapping("/register")
+public class RegistrationController {
 
     @RequestMapping(method = GET)
     public String home(Model model) {
-        return "application";
+        return "register";
     }
 }
