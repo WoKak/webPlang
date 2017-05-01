@@ -16,7 +16,7 @@
 <nav>
     <ul>
         <li><a href=" <spring:url value="/home"/> ">strona główna</a></li>
-        <li><a href=" <spring:url value="/login"/> ">aplikacja</a></li>
+        <li><a href=" <spring:url value="/application"/> ">aplikacja</a></li>
         <li><a href=" <spring:url value="/about"/> ">o aplikacji</a></li>
     </ul>
 </nav>
