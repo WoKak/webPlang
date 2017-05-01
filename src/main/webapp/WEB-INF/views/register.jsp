@@ -18,7 +18,7 @@
 <nav>
     <ul>
         <li><a href=" <spring:url value="/home"/> ">strona główna</a></li>
-        <li><a href=" <spring:url value="/application"/> ">aplikacja</a></li>
+        <li><a href=" <spring:url value="/login"/> ">aplikacja</a></li>
         <li><a href=" <spring:url value="/about"/> ">o aplikacji</a></li>
     </ul>
 </nav>
@@ -32,6 +32,9 @@
             <br>
             <br>
             <input type="password" name="password" placeholder="hasło"/>
+            <br>
+            <br>
+            <input type="password" name="password" placeholder="powtórz hasło"/>
         </div>
         <div class="form-group">
             <input type="submit" id="ok_button" value="Rejestracja"/>
