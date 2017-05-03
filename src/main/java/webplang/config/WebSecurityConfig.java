@@ -18,21 +18,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                    .antMatchers("/about", "/home").authenticated()
-                    .and()
                 .formLogin()
                     .loginPage("/login")
+                    .permitAll()
                     .and()
                 .logout()
-                    .logoutSuccessUrl("/home")
-                    .permitAll();
+                    .permitAll()
+                    .and()
+                .csrf()
+                    .disable()
+                .authorizeRequests()
+                    .antMatchers("/home", "/about", "register", "login").permitAll()
+                    .anyRequest().authenticated();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER");
+                    .withUser("user").password("password").roles("USER");
     }
 }

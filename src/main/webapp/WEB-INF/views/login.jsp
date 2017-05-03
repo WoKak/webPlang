@@ -26,7 +26,7 @@
     <div class="appText">
         <label>Zaloguj się</label>
     </div>
-    <form>
+    <form action="${"/login"}" method="post">
         <div class="form-group">
             <input type="text" name="username" placeholder="login"/>
             <br>
