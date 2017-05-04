@@ -21,11 +21,6 @@
             <li><a href=" <spring:url value="/application"/> ">aplikacja</a></li>
             <li><a href=" <spring:url value="/addWord"/> ">dodaj słówko</a></li>
             <li><a href=" <spring:url value="/about"/> ">o aplikacji</a></li>
-            <li>
-                <form action="${"/logout"}" method="post">
-                    <input type="submit" value="Wyloguj"/>
-                </form>
-            </li>
         </ul>
     </nav>
     <div class="application_box">
@@ -48,5 +43,8 @@
             <label id="points">${points}</label>
         </div>
     </div>
+    <form action="${"/logout"}" method="post">
+        <input type="submit" id="logout_button" value="Wyloguj"/>
+    </form>
 </body>
 </html>

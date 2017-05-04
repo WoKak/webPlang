@@ -23,13 +23,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                     .and()
                 .logout()
-                    .permitAll()
+                    .logoutSuccessUrl("/home")
                     .and()
                 .csrf()
                     .disable()
                 .authorizeRequests()
-                    .antMatchers("/home", "/about", "register", "login").permitAll()
-                    .anyRequest().authenticated();
+                    .antMatchers("/application", "/addWord").authenticated()
+                    .anyRequest().permitAll();
     }
 
     @Autowired

@@ -43,3 +43,27 @@
     font-size: large;
     margin: 10px;
 }
+
+#logout_button {
+    border: 8px solid #73a9ff;
+    border-radius: 10%;
+    background: white;
+    color: black;
+    width: 500px;
+    height: 50px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+    margin: 20px;
+}
+
+#logout_button:hover {
+    border: 8px solid #73a9ff;
+    border-radius: 10%;
+    background: #65a1c4;
+    color: white;
+    width: 500px;
+    height: 50px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+    margin: 20px;
+}
