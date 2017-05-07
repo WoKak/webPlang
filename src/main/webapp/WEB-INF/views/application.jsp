@@ -47,5 +47,6 @@
         <input type="submit" id="logout_button" value="Wyloguj"/>
     </form>
     <script type="text/javascript" src="<c:url value="/resources/js/change_color.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/js/clear_answer.js" />"></script>
 </body>
 </html>

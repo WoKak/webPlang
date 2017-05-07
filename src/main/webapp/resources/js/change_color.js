@@ -6,8 +6,6 @@
 
 var pathToResult = document.getElementById('result');
 
-var color = '';
-
 if(pathToResult.textContent === 'Źle!') {
     pathToResult.style.color = '#ff0000';
 }
