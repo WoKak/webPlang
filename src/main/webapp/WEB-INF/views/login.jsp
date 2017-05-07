@@ -37,7 +37,6 @@
             <input type="submit" id="ok_button" value="Zaloguj"/>
         </div>
     </form>
-    <a href=" <spring:url value="/register"/> ">Rejestracja</a>
 </div>
 </body>
 </html>

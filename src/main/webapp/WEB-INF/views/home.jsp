@@ -9,8 +9,8 @@
           href="<c:url value="/resources/styles/homeStyle.css" />">
 </head>
 <body>
-<h1>Witam w serwisie plang!</h1>
-<h2>Platformie stworzonej do nauki języków obcych.</h2>
+<h1>plang</h1>
+<h2>Platforma stworzona do nauki języków obcych.</h2>
 <nav>
     <ul>
         <li><a href=" <spring:url value="/home"/> ">strona główna</a></li>

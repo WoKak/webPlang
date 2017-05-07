@@ -46,5 +46,6 @@
     <form action="${"/logout"}" method="post">
         <input type="submit" id="logout_button" value="Wyloguj"/>
     </form>
+    <script type="text/javascript" src="<c:url value="/resources/js/change_color.js" />"></script>
 </body>
 </html>
