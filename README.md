@@ -13,6 +13,7 @@ this is a web platform for learning language
 * HSQLDB 2.3.4
 * JUnit 4.8.2
 * Spring Security 4.2.2
+* JavaScript
 
 ## Features
 
