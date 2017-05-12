@@ -2,7 +2,10 @@
  * Created by Michał on 2017-05-07.
  */
 
-//clears previous answer
+/**
+ * clears previous answer
+ * @type {Element}
+ */
 
 var path = document.getElementById('wordInEnglish');
 

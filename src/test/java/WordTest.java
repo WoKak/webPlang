@@ -24,6 +24,9 @@ public class WordTest {
     private static EmbeddedDatabase db;
     private static WordService wordService;
 
+    /**
+     * Sets up database for tests
+     */
     @BeforeClass
     public static void setUpDB() {
         db = new EmbeddedDatabaseBuilder()
@@ -35,6 +38,10 @@ public class WordTest {
         wordService = new WordService(db);
     }
 
+    /**
+     * Inserts data into test database
+     * @throws ScriptException
+     */
     @Before
     public void setUp() throws ScriptException {
         try {
@@ -45,6 +52,10 @@ public class WordTest {
         }
     }
 
+    /**
+     * Checks whether new word was added
+     * @throws Exception
+     */
     @Test
     public void shouldAddWord() throws Exception {
 

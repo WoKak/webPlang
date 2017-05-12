@@ -2,7 +2,9 @@
  * Created by Michał on 2017-05-07.
  */
 
-//changes color of the result on application site
+/**
+ * changes color of the result on application site
+ */
 
 var pathToResult = document.getElementById('result');
 

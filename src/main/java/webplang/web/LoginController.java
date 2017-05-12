@@ -10,6 +10,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  * Created by Michał on 2017-04-24.
  */
 
+/**
+ * Controller of the login page
+ */
 @Controller
 @RequestMapping("/login")
 public class LoginController {

@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * Controller of the home section
+ */
 @Controller
 @RequestMapping("/home")
 public class HomeController {

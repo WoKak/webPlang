@@ -23,6 +23,9 @@ public class ExerciseTest {
     private static EmbeddedDatabase db;
     private static ExerciseService exerciseService;
 
+    /**
+     * Sets up database for tests
+     */
     @BeforeClass
     public static void setUpDB() {
         db = new EmbeddedDatabaseBuilder()
@@ -34,6 +37,10 @@ public class ExerciseTest {
         exerciseService = new ExerciseService(db);
     }
 
+    /**
+     * Inserts data into test database
+     * @throws ScriptException
+     */
     @Before
     public void setUp() throws ScriptException {
         try {
@@ -44,6 +51,10 @@ public class ExerciseTest {
         }
     }
 
+    /**
+     * Checks whether exercise is initialized
+     * @throws Exception
+     */
     @Test
     public void shouldInitialize() throws Exception {
 
@@ -53,6 +64,10 @@ public class ExerciseTest {
         Assert.assertTrue(testExercise.getWords().size() == 20);
     }
 
+    /**
+     * Checks whether wordInPolish was found
+     * @throws Exception
+     */
     @Test
     public void shouldFindWordInPolish() throws Exception {
 
@@ -68,6 +83,10 @@ public class ExerciseTest {
         Assert.assertTrue(testWordInPolish.equals(randomWord.getWordInPolish()));
     }
 
+    /**
+     * Checks whether wordInEnglish was found
+     * @throws Exception
+     */
     @Test
     public void shouldFindWordInEnglish() throws Exception {
 

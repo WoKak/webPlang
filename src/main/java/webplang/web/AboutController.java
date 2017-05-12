@@ -10,6 +10,9 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  * Created by Michał on 2017-03-24.
  */
 
+/**
+ * Controller of the about section
+ */
 @Controller
 @RequestMapping("/about")
 public class AboutController {
