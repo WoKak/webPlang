@@ -14,6 +14,8 @@ this is a web platform for learning language
 * JUnit 4.8.2
 * Spring Security 4.2.2
 * JavaScript
+* CSS
+* JSP
 
 ## Features
 
