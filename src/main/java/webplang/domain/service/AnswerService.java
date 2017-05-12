@@ -1,4 +1,4 @@
-package webplang.service;
+package webplang.domain.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;

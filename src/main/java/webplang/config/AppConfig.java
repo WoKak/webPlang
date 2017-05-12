@@ -8,7 +8,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import webplang.domain.Exercise;
-import webplang.service.ExerciseService;
+import webplang.domain.service.ExerciseService;
 
 import javax.sql.DataSource;
 

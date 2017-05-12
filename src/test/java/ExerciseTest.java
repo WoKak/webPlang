@@ -7,7 +7,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import webplang.domain.Exercise;
 import webplang.domain.Word;
-import webplang.service.ExerciseService;
+import webplang.domain.service.ExerciseService;
 
 import javax.script.ScriptException;
 

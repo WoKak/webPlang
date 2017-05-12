@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Answer;
 import webplang.domain.ApplicationControllerInformation;
 import webplang.domain.Exercise;
-import webplang.service.AnswerService;
+import webplang.domain.service.AnswerService;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
