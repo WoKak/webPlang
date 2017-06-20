@@ -43,9 +43,9 @@
             <label id="points">${points}</label>
         </div>
     </div>
-    <form action="${"/logout"}" method="post">
+    <form:form action="${'/logout'}" method="post">
         <input type="submit" id="logout_button" value="Wyloguj"/>
-    </form>
+    </form:form>
     <script type="text/javascript" src="<c:url value="/resources/js/change_color.js" />"></script>
     <script type="text/javascript" src="<c:url value="/resources/js/clear_answer.js" />"></script>
 </body>

@@ -26,7 +26,7 @@
     <div class="appText">
         <label>Zaloguj się</label>
     </div>
-    <form action="${"/login"}" method="post">
+    <form:form action="${'/login'}" method="post">
         <div class="form-group">
             <input type="text" name="username" placeholder="login"/>
             <br>
@@ -36,7 +36,7 @@
         <div class="form-group">
             <input type="submit" id="ok_button" value="Zaloguj"/>
         </div>
-    </form>
+    </form:form>
 </div>
 </body>
 </html>

@@ -41,8 +41,8 @@
         </div>
     </form:form>
 </div>
-<form action="${"/logout"}" method="post">
+<form:form action="${'/logout'}" method="post">
     <input type="submit" id="logout_button" value="Wyloguj"/>
-</form>
+</form:form>
 </body>
 </html>
