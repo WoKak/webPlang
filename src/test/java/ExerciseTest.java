@@ -7,7 +7,8 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import webplang.domain.Exercise;
 import webplang.domain.Word;
-import webplang.domain.service.ExerciseService;
+import webplang.repository.WordRepository;
+import webplang.service.ExerciseService;
 
 import javax.script.ScriptException;
 
@@ -22,6 +23,7 @@ public class ExerciseTest {
 
     private static EmbeddedDatabase db;
     private static ExerciseService exerciseService;
+    private static WordRepository wordRepository;
 
     /**
      * Sets up database for tests
@@ -34,7 +36,8 @@ public class ExerciseTest {
                 .addScript("db-schema.sql")
                 .build();
 
-        exerciseService = new ExerciseService(db);
+        wordRepository = new WordRepository(db);
+        exerciseService = new ExerciseService(wordRepository);
     }
 
     /**

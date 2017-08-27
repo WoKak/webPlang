@@ -1,10 +1,11 @@
-package webplang.domain.service;
+package webplang.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Answer;
-import webplang.domain.ApplicationControllerInformation;
+import webplang.domain.AppInfo;
 import webplang.domain.Exercise;
 
 /**
@@ -13,6 +14,13 @@ import webplang.domain.Exercise;
 
 @Service
 public class AnswerService {
+
+    private ExerciseService exerciseService;
+
+    @Autowired
+    public AnswerService(ExerciseService es) {
+        this.exerciseService = es;
+    }
 
     public boolean checkAnswer(Answer answer, Exercise exercise, String wordInPl) {
 
@@ -28,7 +36,7 @@ public class AnswerService {
      * @param model - model
      * @param apc - controller information about current exercise
      */
-    public void processApplicationForm(Answer userAnswer, Exercise exercise, Model model, ApplicationControllerInformation apc) {
+    public void processApplicationForm(Answer userAnswer, Exercise exercise, Model model, AppInfo apc) {
 
         if ( checkAnswer(userAnswer, exercise, exercise.getWords().get(apc.getIndex()).getWordInPolish()) ) {
 
@@ -55,11 +63,19 @@ public class AnswerService {
      * @param apc - controller information about current exercise
      * @return model and view of the exception page
      */
-    public ModelAndView handleApplicationException(ApplicationControllerInformation apc) {
+    public ModelAndView handleApplicationException(AppInfo apc, Exercise exercise) {
 
         ModelAndView mav = new ModelAndView();
-        mav.addObject("message", "Koniec ćwiczenia!\n" + "Zdobyłeś " + apc.getPoints() + " pkt!");
+        mav.addObject("message", "Koniec ćwiczenia!\n" + "Zdobyłeś " + apc.getPoints() + " pkt!" +
+                "\n Kliknij \"aplikacja\" aby rozpocząć od nowa");
         mav.setViewName("appExeption");
+
+        Exercise newExercise = new Exercise();
+        this.exerciseService.initializeExercise(newExercise);
+        this.exerciseService.swap(exercise, newExercise);
+        apc.setIndex(0);
+        apc.setPoints(0);
+
         return mav;
     }
 }

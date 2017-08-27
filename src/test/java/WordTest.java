@@ -5,7 +5,8 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import webplang.domain.Word;
-import webplang.domain.service.WordService;
+import webplang.repository.WordRepository;
+import webplang.service.WordService;
 
 import javax.script.ScriptException;
 
@@ -23,6 +24,7 @@ public class WordTest {
 
     private static EmbeddedDatabase db;
     private static WordService wordService;
+    private static WordRepository wordRepository;
 
     /**
      * Sets up database for tests
@@ -35,11 +37,13 @@ public class WordTest {
                 .addScript("db-schema.sql")
                 .build();
 
-        wordService = new WordService(db);
+        wordRepository = new WordRepository(db);
+        wordService = new WordService(wordRepository);
     }
 
     /**
      * Inserts data into test database
+     *
      * @throws ScriptException
      */
     @Before
@@ -54,6 +58,7 @@ public class WordTest {
 
     /**
      * Checks whether new word was added
+     *
      * @throws Exception
      */
     @Test
@@ -61,7 +66,7 @@ public class WordTest {
 
         Word testWord = new Word("test jednostkowy", "unit test");
         Word assertedWord = null;
-        
+
         wordService.addWord(testWord, null);
 
 
@@ -73,9 +78,9 @@ public class WordTest {
             assertedWord = new Word(result.getString(2).trim(), result.getString(3).trim());
         }
 
-        if(Optional.of(assertedWord).isPresent())
+        if (Optional.of(assertedWord).isPresent())
             Assert.assertTrue(assertedWord.equals(testWord));
-        
+
     }
 
     @AfterClass

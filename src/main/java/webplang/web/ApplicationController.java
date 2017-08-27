@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Answer;
-import webplang.domain.ApplicationControllerInformation;
+import webplang.domain.AppInfo;
 import webplang.domain.Exercise;
-import webplang.domain.service.AnswerService;
+import webplang.service.AnswerService;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -27,7 +27,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class ApplicationController {
 
     private AnswerService answerService;
-    private ApplicationControllerInformation applicationControllerInformation;
+    private AppInfo appInfo;
     private Exercise exercise;
 
     @Autowired
@@ -35,7 +35,7 @@ public class ApplicationController {
 
         this.exercise = e;
         this.answerService = as;
-        this.applicationControllerInformation = new ApplicationControllerInformation();
+        this.appInfo = new AppInfo();
     }
 
     /**
@@ -46,14 +46,14 @@ public class ApplicationController {
     @RequestMapping(method = GET)
     public String getWordInEnglishFromApplicationForm(Model model) {
 
-        model.addAttribute("wordToTranslate", exercise.getWords().get(applicationControllerInformation.getIndex()).getWordInPolish());
+        model.addAttribute("wordToTranslate", exercise.getWords().get(appInfo.getIndex()).getWordInPolish());
         Answer userAnswer = new Answer();
         model.addAttribute("userAnswer", userAnswer);
         return "application";
     }
 
     /**
-     * Uses service to process answer
+     * Uses webplang.service to process answer
      * @param model - model
      * @param userAnswer - answer typed by user
      * @return updated view
@@ -61,17 +61,17 @@ public class ApplicationController {
     @RequestMapping(method = POST)
     public String processApplicationForm(Model model, @ModelAttribute("userAnswer") Answer userAnswer) {
 
-        this.answerService.processApplicationForm(userAnswer, this.exercise, model, this.applicationControllerInformation);
+        this.answerService.processApplicationForm(userAnswer, this.exercise, model, this.appInfo);
         return "application";
     }
 
     /**
      * Uses service to handle main application exception
-     * @return - see service docs
+     * @return - see webplang.service docs
      */
     @ExceptionHandler(IndexOutOfBoundsException.class)
     public ModelAndView handleAppException() {
 
-        return this.answerService.handleApplicationException(this.applicationControllerInformation);
+        return this.answerService.handleApplicationException(this.appInfo, this.exercise);
     }
 }

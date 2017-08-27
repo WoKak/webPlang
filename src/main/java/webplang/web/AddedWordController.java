@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Word;
-import webplang.domain.service.WordService;
+import webplang.service.WordService;
 import webplang.exception.ApplicationException;
 
 import javax.validation.Valid;
+
+import java.sql.SQLException;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -50,13 +52,14 @@ public class AddedWordController {
     }
 
     /**
-     * Uses service to add word to database
+     * Uses webplang.service to add word to database
      * @param wordToAdd - word from form
      * @param result - result of validation
      * @return if everything's ok redirects to the homepage
      */
     @RequestMapping(method = POST)
-    public String processAddNewWordForm(@ModelAttribute("wordToAdd") @Valid Word wordToAdd, BindingResult result) {
+    public String processAddNewWordForm(@ModelAttribute("wordToAdd") @Valid Word wordToAdd, BindingResult result)
+            throws SQLException{
 
         this.addWordService.addWord(wordToAdd, result);
 
@@ -64,9 +67,9 @@ public class AddedWordController {
     }
 
     /**
-     * Uses service to handle exception
+     * Uses webplang.service to handle exception
      * @param exception - exception thrown during adding
-     * @return - see service docs
+     * @return - see webplang.service docs
      */
     @ExceptionHandler(ApplicationException.class)
     public ModelAndView handleAddWordToBaseException(ApplicationException exception) {

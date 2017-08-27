@@ -5,14 +5,14 @@ package webplang.domain;
  */
 
 /**
- * ApplicationControllerInformation is the two numbers describing current exercise
+ * AppInfo is the two numbers describing current exercise
  */
-public class ApplicationControllerInformation {
+public class AppInfo {
 
     private int index;
     private int points;
 
-    public ApplicationControllerInformation() {
+    public AppInfo() {
         this.index = 0;
         this.points = 0;
     }
@@ -35,7 +35,7 @@ public class ApplicationControllerInformation {
 
     @Override
     public String toString() {
-        return "ApplicationControllerInformation{" +
+        return "AppInfo{" +
                 "index=" + index +
                 ", points=" + points +
                 '}';

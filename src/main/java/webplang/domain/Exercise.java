@@ -22,6 +22,10 @@ public class Exercise {
         return words;
     }
 
+    public void setWords(ArrayList<Word> words) {
+        this.words = words;
+    }
+
     public String findWordInEnglish(String wordInPolish) {
 
         String toReturn = null;

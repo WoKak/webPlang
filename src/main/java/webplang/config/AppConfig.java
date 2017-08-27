@@ -8,7 +8,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import webplang.domain.Exercise;
-import webplang.domain.service.ExerciseService;
+import webplang.repository.WordRepository;
+import webplang.service.ExerciseService;
 
 import javax.sql.DataSource;
 
@@ -47,8 +48,14 @@ public class AppConfig {
     public Exercise exercise() {
 
         Exercise e = new Exercise();
-        ExerciseService es = new ExerciseService(dataSource());
+        ExerciseService es = new ExerciseService(wordRepository());
         es.initializeExercise(e);
         return e;
+    }
+
+    @Bean
+    public WordRepository wordRepository() {
+
+        return new WordRepository(dataSource());
     }
 }
