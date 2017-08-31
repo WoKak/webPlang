@@ -12,6 +12,7 @@
         <link rel="stylesheet"
               type="text/css"
               href="<c:url value="/resources/styles/appStyle.css" />">
+        <script type="text/javascript" src="<c:url value="/resources/jquery/jquery-3.2.1.min.js" />"></script>
 </head>
 <body>
     <h2>plang</h2>
@@ -29,7 +30,7 @@
         </div>
         <form:form modelAttribute="userAnswer">
             <div class="form-group">
-                <form:input id="wordInEnglish" path="wordInEnglish" type="text"/>
+                <form:input id="wordInEnglish" path="wordInEnglish" type="text" autocomplete="off"/>
             </div>
             <div class="form-group">
                 <input type="submit" id="ok_button" value="OK"/>

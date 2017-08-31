@@ -12,6 +12,7 @@ import webplang.repository.WordRepository;
 import webplang.service.ExerciseService;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 
 /**
  * Created by Michał on 2017-04-01.
@@ -45,7 +46,7 @@ public class AppConfig {
     }
 
     @Bean
-    public Exercise exercise() {
+    public Exercise exercise() throws SQLException{
 
         Exercise e = new Exercise();
         ExerciseService es = new ExerciseService(wordRepository());

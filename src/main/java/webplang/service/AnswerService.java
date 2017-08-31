@@ -7,6 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 import webplang.domain.Answer;
 import webplang.domain.AppInfo;
 import webplang.domain.Exercise;
+import webplang.repository.WordRepository;
+
+import java.sql.SQLException;
 
 /**
  * Created by Michał on 2017-04-06.
@@ -16,10 +19,12 @@ import webplang.domain.Exercise;
 public class AnswerService {
 
     private ExerciseService exerciseService;
+    private WordRepository wordRepository;
 
     @Autowired
-    public AnswerService(ExerciseService es) {
+    public AnswerService(ExerciseService es, WordRepository wr) {
         this.exerciseService = es;
+        this.wordRepository = wr;
     }
 
     public boolean checkAnswer(Answer answer, Exercise exercise, String wordInPl) {
@@ -36,10 +41,11 @@ public class AnswerService {
      * @param model - model
      * @param apc - controller information about current exercise
      */
-    public void processApplicationForm(Answer userAnswer, Exercise exercise, Model model, AppInfo apc) {
+    public void processApplicationForm(Answer userAnswer, Exercise exercise, Model model, AppInfo apc) throws SQLException{
 
         if ( checkAnswer(userAnswer, exercise, exercise.getWords().get(apc.getIndex()).getWordInPolish()) ) {
 
+            wordRepository.updateStats(exercise.getWords().get(apc.getIndex()).getWordInPolish());
             apc.setPoints(apc.getPoints() + 1);
             apc.setIndex(apc.getIndex() + 1);
             model.addAttribute("result", "Dobrze!");
@@ -63,7 +69,7 @@ public class AnswerService {
      * @param apc - controller information about current exercise
      * @return model and view of the exception page
      */
-    public ModelAndView handleApplicationException(AppInfo apc, Exercise exercise) {
+    public ModelAndView handleApplicationException(AppInfo apc, Exercise exercise) throws SQLException{
 
         ModelAndView mav = new ModelAndView();
         mav.addObject("message", "Koniec ćwiczenia!\n" + "Zdobyłeś " + apc.getPoints() + " pkt!" +

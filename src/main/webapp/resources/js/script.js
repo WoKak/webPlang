@@ -8,14 +8,14 @@ clear_answer();
 
 function change_colour() {
 
-    var pathToResult = document.getElementById('result');
+    var pathToResult = $("#result");
 
-    if (pathToResult.textContent === 'Źle!') {
-        pathToResult.style.color = '#ff0000';
+    if (pathToResult.text() === 'Źle!') {
+        pathToResult.css('color', '#ff0000');
     }
 
-    if (pathToResult.textContent === 'Dobrze!') {
-        pathToResult.style.color = '#00b300';
+    if (pathToResult.text() === 'Dobrze!') {
+        pathToResult.css('color', '#00b300');
     }
 }
 

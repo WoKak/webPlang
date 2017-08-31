@@ -12,6 +12,8 @@ import webplang.domain.AppInfo;
 import webplang.domain.Exercise;
 import webplang.service.AnswerService;
 
+import java.sql.SQLException;
+
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -59,7 +61,7 @@ public class ApplicationController {
      * @return updated view
      */
     @RequestMapping(method = POST)
-    public String processApplicationForm(Model model, @ModelAttribute("userAnswer") Answer userAnswer) {
+    public String processApplicationForm(Model model, @ModelAttribute("userAnswer") Answer userAnswer) throws SQLException{
 
         this.answerService.processApplicationForm(userAnswer, this.exercise, model, this.appInfo);
         return "application";
@@ -70,7 +72,7 @@ public class ApplicationController {
      * @return - see webplang.service docs
      */
     @ExceptionHandler(IndexOutOfBoundsException.class)
-    public ModelAndView handleAppException() {
+    public ModelAndView handleAppException() throws SQLException{
 
         return this.answerService.handleApplicationException(this.appInfo, this.exercise);
     }

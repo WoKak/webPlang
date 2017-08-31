@@ -3,13 +3,9 @@ package webplang.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import webplang.domain.Exercise;
-import webplang.domain.Word;
 import webplang.repository.WordRepository;
 
-import javax.sql.DataSource;
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.Random;
+import java.sql.SQLException;
 
 /**
  * Created by Michał on 2017-04-05.
@@ -29,9 +25,9 @@ public class ExerciseService {
      * Initialize exercise - adds words from database
      * @param exercise - exercise to be initialized
      */
-    public void initializeExercise(Exercise exercise) {
+    public void initializeExercise(Exercise exercise) throws SQLException{
 
-        wordRepository.initializeExercise(exercise);
+        wordRepository.initializeFirstExercise(exercise);
     }
 
     public void swap(Exercise exercise, Exercise newExercise) {
