@@ -10,6 +10,11 @@
     <link rel="stylesheet"
           type="text/css"
           href="<c:url value="/resources/styles/errorStyle.css" />">
+    <style>
+        body {
+            background-image: url("../../resources/images/exception.jpg");
+        }
+    </style>
 </head>
 <body>
 <h2>plang</h2>

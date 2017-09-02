@@ -8,12 +8,7 @@ import webplang.domain.Word;
 import webplang.exception.ApplicationException;
 import webplang.repository.WordRepository;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Optional;
 
 /**
  * Created by Michał on 2017-04-01.
@@ -48,7 +43,7 @@ public class WordService {
 
         ModelAndView mav = new ModelAndView();
         mav.addObject("message", exception.getMessage());
-        mav.setViewName("appExeption");
+        mav.setViewName("appException");
         return mav;
     }
 }

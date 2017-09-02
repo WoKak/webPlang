@@ -2,13 +2,15 @@
  * Created by Michał on 2017-05-07.
  */
 
-change_colour();
-clear_answer();
+function modify_app() {
 
+    change_colour();
+    clear_answer();
+}
 
 function change_colour() {
 
-    var pathToResult = $("#result");
+    var pathToResult = $("#is_correct");
 
     if (pathToResult.text() === 'Źle!') {
         pathToResult.css('color', '#ff0000');

@@ -7,6 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import webplang.domain.AppInfo;
 import webplang.domain.Exercise;
 import webplang.repository.WordRepository;
 import webplang.service.ExerciseService;
@@ -58,5 +59,11 @@ public class AppConfig {
     public WordRepository wordRepository() {
 
         return new WordRepository(dataSource());
+    }
+
+    @Bean
+    public AppInfo appInfo() {
+
+        return new AppInfo();
     }
 }

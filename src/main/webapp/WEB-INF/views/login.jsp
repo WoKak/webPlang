@@ -12,6 +12,11 @@
     <link rel="stylesheet"
           type="text/css"
           href="<c:url value="/resources/styles/appStyle.css" />">
+    <style>
+        body {
+            background-image: url("../../resources/images/login.jpg");
+        }
+    </style>
 </head>
 <body>
 <h2>plang</h2>

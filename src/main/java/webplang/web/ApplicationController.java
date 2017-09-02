@@ -1,79 +1,19 @@
 package webplang.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import webplang.domain.Answer;
-import webplang.domain.AppInfo;
-import webplang.domain.Exercise;
-import webplang.service.AnswerService;
-
-import java.sql.SQLException;
-
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Created by Michał on 2017-03-24.
+ * Created by Michał on 2017-09-02.
  */
 
-/**
- * Main application controller
- */
 @Controller
-@RequestMapping("/application")
 public class ApplicationController {
 
-    private AnswerService answerService;
-    private AppInfo appInfo;
-    private Exercise exercise;
+    @RequestMapping(value = "/application", method = RequestMethod.GET)
+    public String mainController() {
 
-    @Autowired
-    public ApplicationController(AnswerService as, Exercise e) {
-
-        this.exercise = e;
-        this.answerService = as;
-        this.appInfo = new AppInfo();
-    }
-
-    /**
-     * Gets answer from form
-     * @param model - model
-     * @return new answer created from form
-     */
-    @RequestMapping(method = GET)
-    public String getWordInEnglishFromApplicationForm(Model model) {
-
-        model.addAttribute("wordToTranslate", exercise.getWords().get(appInfo.getIndex()).getWordInPolish());
-        Answer userAnswer = new Answer();
-        model.addAttribute("userAnswer", userAnswer);
         return "application";
-    }
-
-    /**
-     * Uses webplang.service to process answer
-     * @param model - model
-     * @param userAnswer - answer typed by user
-     * @return updated view
-     */
-    @RequestMapping(method = POST)
-    public String processApplicationForm(Model model, @ModelAttribute("userAnswer") Answer userAnswer) throws SQLException{
-
-        this.answerService.processApplicationForm(userAnswer, this.exercise, model, this.appInfo);
-        return "application";
-    }
-
-    /**
-     * Uses service to handle main application exception
-     * @return - see webplang.service docs
-     */
-    @ExceptionHandler(IndexOutOfBoundsException.class)
-    public ModelAndView handleAppException() throws SQLException{
-
-        return this.answerService.handleApplicationException(this.appInfo, this.exercise);
     }
 }

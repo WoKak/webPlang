@@ -13,6 +13,11 @@
               type="text/css"
               href="<c:url value="/resources/styles/appStyle.css" />">
         <script type="text/javascript" src="<c:url value="/resources/jquery/jquery-3.2.1.min.js" />"></script>
+        <style>
+            body {
+                background-image: url("../../resources/images/application.jpg");
+            }
+        </style>
 </head>
 <body>
     <h2>plang</h2>
@@ -26,27 +31,25 @@
     </nav>
     <div class="application_box">
         <div class="appText">
-            <label id="wtt">${wordToTranslate}</label>
+            <label id="word_to_translate">Wpisz "OK" aby rozpocząć.</label>
         </div>
-        <form:form modelAttribute="userAnswer">
-            <div class="form-group">
-                <form:input id="wordInEnglish" path="wordInEnglish" type="text" autocomplete="off"/>
-            </div>
-            <div class="form-group">
-                <input type="submit" id="ok_button" value="OK"/>
-            </div>
-        </form:form>
+        <form id="answer_form">
+            <input id="wordInEnglish" type="text" autocomplete="off"/>
+            <br>
+            <input type="submit" id="ok_button" value="OK"/>
+        </form>
         <div class="appText">
-            <label id="result">${result}</label>
+            <label id="is_correct"></label>
             <br>
-            <label id="correct_answer">${correct_answer}</label>
+            <label id="correct_answer"></label>
             <br>
-            <label id="points">${points}</label>
+            <label id="points"></label>
         </div>
     </div>
     <form:form action="${'/logout'}" method="post">
         <input type="submit" id="logout_button" value="Wyloguj"/>
     </form:form>
-    <script type="text/javascript" src="<c:url value="/resources/js/script.js" />"></script>
+    <script type="text/javascript" src="/resources/js/application.js"></script>
+    <script type="text/javascript" src="/resources/js/script.js"></script>
 </body>
 </html>

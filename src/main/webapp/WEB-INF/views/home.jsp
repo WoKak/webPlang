@@ -7,6 +7,11 @@
     <link rel="stylesheet"
           type="text/css"
           href="<c:url value="/resources/styles/homeStyle.css" />">
+    <style>
+        body {
+            background-image: url("../../resources/images/home.jpg");
+        }
+    </style>
 </head>
 <body>
 <h1>plang</h1>

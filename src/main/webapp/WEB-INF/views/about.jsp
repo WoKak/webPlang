@@ -10,6 +10,11 @@
     <link rel="stylesheet"
           type="text/css"
           href="<c:url value="/resources/styles/aboutStyle.css" />">
+    <style>
+        body {
+            background-image: url("../../resources/images/about.jpg");
+        }
+    </style>
 </head>
 <body>
 <h2>Historia aplikacji.</h2>
