@@ -13,18 +13,22 @@ this is a web platform for learning language
 * HSQLDB 2.3.4
 * JUnit 4.8.2
 * Spring Security 4.2.2
-* JavaScript
+* Jackson 2.8.8
+* JavaScript (ES6)
+* jQuery 3.2.1
+* AJAX
 * CSS
 * JSP
 
 ## Features
 
-* Simple exercise testing knowledge of randomly chosen 20 words
+* Dynamical exercises testing knowledge of 20 words 
 * Adding words to database
 
 ## To run this project you need:
 
 - PostgreSQL and proper table in database used by program
+- database properties file
 - Tomacat server
 
 Make the war file then place the file in Tomcat's webapps directory, run Tomcat server and access application here: "http://localhost:8080/home"

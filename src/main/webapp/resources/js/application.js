@@ -2,13 +2,14 @@
  * Created by Michał on 2017-09-02.
  */
 
+//script runs after submitting the answer
 $("#answer_form").submit(function (event) {
 
     event.preventDefault();
     searchViaAjax();
-
 });
 
+//AJAX request and its configuration
 function searchViaAjax() {
 
     $.ajax({
@@ -19,11 +20,11 @@ function searchViaAjax() {
         timeout: 100000,
         success: function (data) {
             console.log("SUCCESS: ", data);
-            display_response(data);
+            displayResponse(data);
         },
         error: function (e) {
             console.log("ERROR: ", e);
-            display_score_and_next_word(e);
+            displayScoreAndNextWord(e);
         },
         done: function () {
             console.log("DONE");
@@ -31,20 +32,22 @@ function searchViaAjax() {
     });
 }
 
-function display_response(data) {
+//function responsible for displaying data
+function displayResponse(data) {
 
-    var response = JSON.parse(JSON.stringify(data, null, 4));
+    const response = JSON.parse(JSON.stringify(data, null, 4));
 
     $('#word_to_translate').text(response.nextWord);
     $('#is_correct').text(response.isCorrect);
     $('#correct_answer').text(response.correctAnswer);
     $('#points').text(response.points);
-    modify_app();
+    modifyApp();
 }
 
-function display_score_and_next_word(data) {
+//function responsible for displaying score
+function displayScoreAndNextWord(data) {
 
-    var tab = data.responseText.split(" ");
+    const tab = data.responseText.split(" ");
     $('#word_to_translate').text(tab[1]);
     alert("Koniec ćwiczenia. \nZdobyłeś: " + tab[0] + "/20.");
 }

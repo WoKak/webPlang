@@ -2,15 +2,15 @@
  * Created by Michał on 2017-05-07.
  */
 
-function modify_app() {
+function modifyApp() {
 
-    change_colour();
-    clear_answer();
+    changeColour();
+    clearAnswer();
 }
 
-function change_colour() {
+function changeColour() {
 
-    var pathToResult = $("#is_correct");
+    const pathToResult = $("#is_correct");
 
     if (pathToResult.text() === 'Źle!') {
         pathToResult.css('color', '#ff0000');
@@ -21,8 +21,8 @@ function change_colour() {
     }
 }
 
-function clear_answer() {
+function clearAnswer() {
 
-    var path = document.getElementById('wordInEnglish');
+    const path = document.getElementById('wordInEnglish');
     path.value = '';
 }
