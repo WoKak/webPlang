@@ -49,5 +49,8 @@ function displayScoreAndNextWord(data) {
 
     const tab = data.responseText.split(" ");
     $('#word_to_translate').text(tab[1]);
+    $('#is_correct').text("");
+    $('#correct_answer').text("");
+    $('#points').text("");
     alert("Koniec ćwiczenia. \nZdobyłeś: " + tab[0] + "/20.");
 }

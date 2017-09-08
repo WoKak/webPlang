@@ -48,8 +48,6 @@ public class AnswerService {
             AppInfo apc,
             AnswerResponseBody result) throws SQLException {
 
-        System.out.println(apc.getIndex());
-
         if (isTrainingInitiated) {
 
             if (checkAnswer(userAnswer, exercise, exercise.getWords().get(apc.getIndex()).getWordInPolish())) {
