@@ -20,7 +20,7 @@ import java.sql.SQLException;
  */
 
 @Configuration
-@PropertySource(value = {"classpath:database/database.properties"})
+@PropertySource(value = {"classpath:database/database_MySQL.properties"})
 public class AppConfig {
 
 

@@ -45,8 +45,8 @@ public class WordRepository {
         }
 
         String insertWords = "INSERT INTO words (wordInPolish, wordInEnglish) VALUES (?, ?)";
-        String check = "SELECT * FROM words ORDER BY id DESC LIMIT 1";
-        String insertStats = "INSERT INTO stats (word_id, num_correct, num_total) VALUES (?, 0, 1)";
+        //String check = "SELECT * FROM words ORDER BY id DESC LIMIT 1";
+        //String insertStats = "INSERT INTO stats (word_id, num_correct, num_total) VALUES (?, 0, 1)";
 
         PreparedStatement pstatWords = conn.prepareStatement(insertWords);
         pstatWords.setString(1, wordToAdd.getWordInPolish());
@@ -54,7 +54,7 @@ public class WordRepository {
         pstatWords.executeUpdate();
 
         //init stat
-        PreparedStatement pstatCheck = conn.prepareStatement(check);
+        /*PreparedStatement pstatCheck = conn.prepareStatement(check);
         ResultSet checkResult = pstatCheck.executeQuery();
 
         //checks id of added word
@@ -65,7 +65,7 @@ public class WordRepository {
 
         PreparedStatement pstatStats = conn.prepareStatement(insertStats);
         pstatStats.setInt(1, id);
-        pstatStats.executeUpdate();
+        pstatStats.executeUpdate();*/
     }
 
     public void initializeFirstExercise(Exercise exercise) throws SQLException{
@@ -73,8 +73,8 @@ public class WordRepository {
         ArrayList<Integer> alreadyInExercise = new ArrayList<Integer>(0);
         Random random = new Random();
         String query = "SELECT * FROM words WHERE id = CAST(? AS integer)";
-        String update = "UPDATE stats SET num_total=? WHERE word_id=?";
-        String chceck = "SELECT * FROM stats WHERE word_id=CAST(? AS integer)";
+        //String update = "UPDATE stats SET num_total=? WHERE word_id=?";
+        //String chceck = "SELECT * FROM stats WHERE word_id=CAST(? AS integer)";
         Integer size = 0;
         int counter = 0;
 
@@ -111,22 +111,22 @@ public class WordRepository {
             alreadyInExercise.add(idx);
 
             //updates stats
-            PreparedStatement prepUpdate = conn.prepareStatement(update);
-            PreparedStatement prepCheck = conn.prepareStatement(chceck);
+            //PreparedStatement prepUpdate = conn.prepareStatement(update);
+            //PreparedStatement prepCheck = conn.prepareStatement(chceck);
 
             //checks previous value
-            prepCheck.setString(1, String.valueOf(idx));
+            /*prepCheck.setString(1, String.valueOf(idx));
             result = prepCheck.executeQuery();
             int num_total = 0;
             if (result.next()) {
                 num_total = result.getInt(3);
-            }
+            }*/
 
             //updates value
-            num_total = num_total + 1;
+            /*num_total = num_total + 1;
             prepUpdate.setInt(1, num_total);
             prepUpdate.setInt(2, idx);
-            prepUpdate.executeUpdate();
+            prepUpdate.executeUpdate();*/
         }
 
     }

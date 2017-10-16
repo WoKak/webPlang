@@ -52,7 +52,7 @@ public class AnswerService {
 
             if (checkAnswer(userAnswer, exercise, exercise.getWords().get(apc.getIndex()).getWordInPolish())) {
 
-                wordRepository.updateStats(exercise.getWords().get(apc.getIndex()).getWordInPolish());
+                //wordRepository.updateStats(exercise.getWords().get(apc.getIndex()).getWordInPolish());
                 apc.setPoints(apc.getPoints() + 1);
                 apc.setIndex(apc.getIndex() + 1);
                 result.setIsCorrect("Dobrze!");
