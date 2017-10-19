@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import webplang.domain.AppInfo;
 import webplang.domain.Exercise;
+import webplang.repository.StatsRepository;
 import webplang.repository.UserRepository;
 import webplang.repository.WordRepository;
 import webplang.service.ExerciseService;
@@ -84,5 +85,11 @@ public class AppConfig {
     public UserRepository userRepository() {
 
         return new UserRepository(dataSource(), passwordEncoder());
+    }
+
+    @Bean
+    public StatsRepository statsRepository() {
+
+        return new StatsRepository(dataSource());
     }
 }

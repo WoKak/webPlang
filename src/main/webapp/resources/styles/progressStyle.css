@@ -1,15 +1,31 @@
 .info_box {
     border: 2px solid #000000;
     width: 1200px;
-    height: 800px;
+    height: 500px;
     margin: 20px auto 20px auto;
-    background: #99ddff;
+    background: #ffffff;
     border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
     -moz-border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
     -webkit-border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
     padding: 20px;
 }
 
+#options_side {
+    width: 500px;
+    height: 500px;
+    border-right: 5px solid #000c33;
+    font-family: "Comic Sans MS";
+}
+
+#canvas_side {
+    width: 700px;
+    height: 500px;
+}
+
+#myChart {
+    width: 680px;
+    height: 500px;
+}
 
 #logout_button {
     border: 8px solid #73a9ff;

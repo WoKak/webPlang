@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import webplang.domain.AnswerResponseBody;
+import webplang.domain.WordAnswerResponseBody;
 import webplang.domain.AppInfo;
 import webplang.domain.Exercise;
 import webplang.service.AnswerService;
@@ -41,10 +40,10 @@ public class RestApplicationController {
      * @return new answer created from form
      */
     @JsonView(Views.Public.class)
-    @RequestMapping(value = {"/process"}, method = RequestMethod.GET)
-    public AnswerResponseBody processAnswer(@RequestParam String answer, Model model) throws SQLException{
+    @RequestMapping(value = {"/processAnswer"}, method = RequestMethod.GET)
+    public WordAnswerResponseBody processAnswer(@RequestParam String answer, Model model) throws SQLException{
 
-        AnswerResponseBody result = new AnswerResponseBody();
+        WordAnswerResponseBody result = new WordAnswerResponseBody();
 
         if (Optional.ofNullable(answer).isPresent()) {
 

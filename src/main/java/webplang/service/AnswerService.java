@@ -2,8 +2,7 @@ package webplang.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
-import webplang.domain.AnswerResponseBody;
+import webplang.domain.WordAnswerResponseBody;
 import webplang.domain.AppInfo;
 import webplang.domain.Exercise;
 import webplang.repository.WordRepository;
@@ -46,7 +45,7 @@ public class AnswerService {
             String userAnswer,
             Exercise exercise,
             AppInfo apc,
-            AnswerResponseBody result) throws SQLException {
+            WordAnswerResponseBody result) throws SQLException {
 
         if (isTrainingInitiated) {
 

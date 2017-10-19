@@ -6,7 +6,7 @@ import webplang.web.Views;
 /**
  * Created by Michał on 2017-09-02.
  */
-public class AnswerResponseBody {
+public class WordAnswerResponseBody {
 
     @JsonView(Views.Public.class)
     private String correctAnswer;

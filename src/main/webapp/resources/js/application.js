@@ -15,7 +15,7 @@ function searchViaAjax() {
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "/process?answer=" + $("#wordInEnglish").val(),
+        url: "/processAnswer?answer=" + $("#wordInEnglish").val(),
         dataType: 'json',
         timeout: 100000,
         success: function (data) {
