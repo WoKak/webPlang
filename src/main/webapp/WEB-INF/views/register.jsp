@@ -1,8 +1,7 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" contentType="text/html; charset=UTF-8" %>
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
-
 <html>
 <head>
     <title>plang</title>
@@ -14,7 +13,7 @@
           href="<c:url value="/resources/styles/appStyle.css" />">
     <style>
         body {
-            background-image: url("../../resources/images/login.jpg");
+            background-image: url("../../resources/images/progress.jpg");
         }
     </style>
 </head>
@@ -28,22 +27,23 @@
     </ul>
 </nav>
 <div class="application_box">
-    <div class="appText">
-        <label>Zaloguj się</label>
-    </div>
-    <form:form action="${'/login'}" method="post">
+    <form:form modelAttribute="userToRegister">
+        <label>Login:</label>
         <div class="form-group">
-            <input type="text" name="username" placeholder="login"/>
-            <br>
-            <br>
-            <input type="password" name="password" placeholder="hasło"/>
+            <form:input id="login" path="login" type="text"/>
+        </div>
+        <label>Hasło:</label>
+        <div>
+            <form:input id="password" path="password" type="password"/>
+        </div>
+        <label>Powtórz hasło:</label>
+        <div>
+            <form:input id="repeatedPassword" path="repeatedPassword" type="password"/>
         </div>
         <div class="form-group">
-            <input type="submit" id="ok_button" value="Zaloguj"/>
+            <input type="submit" class="button" value="rejestruj"/>
         </div>
     </form:form>
 </div>
-<a id="registration" href=" <spring:url value="/register"/> ">rejestracja</a>
 </body>
 </html>
-

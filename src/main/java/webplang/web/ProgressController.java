@@ -7,18 +7,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 /**
- * Created by Michał on 2017-03-24.
+ * Created by Michał on 2017-10-19.
  */
 
-/**
- * Controller of the about section
- */
 @Controller
-@RequestMapping("/about")
-public class AboutController {
+@RequestMapping("/progress")
+public class ProgressController {
 
     @RequestMapping(method = GET)
     public String page(Model model) {
-        return "about";
+        return "progress";
     }
 }

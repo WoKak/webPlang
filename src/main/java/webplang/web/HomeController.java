@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
   @RequestMapping(method = GET)
-  public String home(Model model) {
+  public String page(Model model) {
     return "home";
   }
 

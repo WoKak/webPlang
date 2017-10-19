@@ -9,10 +9,10 @@
           href="<c:url value="/resources/styles/homeStyle.css" />">
     <link rel="stylesheet"
           type="text/css"
-          href="<c:url value="/resources/styles/errorStyle.css" />">
+          href="<c:url value="/resources/styles/progressStyle.css" />">
     <style>
         body {
-            background-image: url("../../resources/images/exception.jpg");
+            background-image: url("../../resources/images/progress.jpg");
         }
     </style>
 </head>
@@ -27,10 +27,13 @@
         <li><a href=" <spring:url value="/about"/> ">o aplikacji</a></li>
     </ul>
 </nav>
-<div class="about_box">
+<div class="info_box">
     <p>
-        ${message}
+
     </p>
 </div>
+<form:form action="${'/logout'}" method="post">
+    <input type="submit" id="logout_button" value="Wyloguj"/>
+</form:form>
 </body>
 </html>

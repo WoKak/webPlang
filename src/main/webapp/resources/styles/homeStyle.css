@@ -26,3 +26,13 @@ nav li a {
 nav li a:hover, nav li {
     color: #73a9ff;
 }
+
+#registration {
+    text-decoration: none;
+    color: #000000;
+    padding: 20px;
+}
+
+#registration:hover {
+    color: #73a9ff;
+}

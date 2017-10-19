@@ -18,7 +18,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 public class LoginController {
 
     @RequestMapping(method = GET)
-    public String home(Model model) {
+    public String page(Model model) {
         return "login";
     }
 }
