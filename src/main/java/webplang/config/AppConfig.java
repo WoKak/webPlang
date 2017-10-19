@@ -51,7 +51,7 @@ public class AppConfig {
 
         Exercise e = new Exercise();
         ExerciseService es = new ExerciseService(wordRepository());
-        es.initializeExercise(e);
+        es.initializeFirstExercise(e);
         return e;
     }
 

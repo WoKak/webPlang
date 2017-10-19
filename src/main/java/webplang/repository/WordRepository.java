@@ -131,6 +131,45 @@ public class WordRepository {
 
     }
 
+    public void initializeLaterExercises(Exercise exercise) throws SQLException {
+
+        Connection conn = dataSource.getConnection();
+
+        String query = "SELECT" +
+                        " w.wordinpolish, w.wordinenglish," +
+                        " CAST(s.num_correct AS DECIMAL(10,2))/CAST(s.num_total AS DECIMAL(10,2)) AS ratio, s.id" +
+                        " FROM stats s INNER JOIN words w ON (s.id = w.id) ORDER BY ratio ASC LIMIT 20";
+
+        String update = "UPDATE stats SET num_total=? WHERE id=?";
+
+        String chceck = "SELECT * FROM stats WHERE id=CAST(? AS integer)";
+
+        PreparedStatement prepUpdate = conn.prepareStatement(update);
+        PreparedStatement prepCheck = conn.prepareStatement(chceck);
+
+        Statement stat = conn.createStatement();
+        ResultSet result = stat.executeQuery(query);
+
+        while (result.next()) {
+            Word tmp = new Word(result.getString(1).trim(), result.getString(2).trim());
+            exercise.getWords().add(tmp);
+
+            //checks previous value
+            prepCheck.setString(1, String.valueOf(result.getInt(4)));
+            ResultSet update_result = prepCheck.executeQuery();
+            int num_total = 0;
+            if (update_result.next()) {
+                num_total = update_result.getInt(3);
+            }
+
+            //updates value
+            num_total = num_total + 1;
+            prepUpdate.setInt(1, num_total);
+            prepUpdate.setString(2, String.valueOf(result.getInt(4)));
+            prepUpdate.executeUpdate();
+        }
+    }
+
     public void updateStats(String wordInPolish) throws SQLException {
 
         Connection conn = dataSource.getConnection();

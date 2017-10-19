@@ -87,7 +87,7 @@ public class AnswerService {
     public void handleApplicationException(AppInfo apc, Exercise exercise) throws SQLException {
 
         Exercise newExercise = new Exercise();
-        this.exerciseService.initializeExercise(newExercise);
+        this.exerciseService.initializeLaterExercises(newExercise);
         this.exerciseService.swap(exercise, newExercise);
         apc.setIndex(0);
         apc.setPoints(0);

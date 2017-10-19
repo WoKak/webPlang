@@ -22,12 +22,21 @@ public class ExerciseService {
     }
 
     /**
-     * Initialize exercise - adds words from database
+     * Initialize first exercise - adds words from database
      * @param exercise - exercise to be initialized
      */
-    public void initializeExercise(Exercise exercise) throws SQLException{
+    public void initializeFirstExercise(Exercise exercise) throws SQLException{
 
         wordRepository.initializeFirstExercise(exercise);
+    }
+
+    /**
+     * Initialize later exercises - adds words from database
+     * @param exercise - exercise to be initialized
+     */
+    public void initializeLaterExercises(Exercise exercise) throws SQLException{
+
+        wordRepository.initializeLaterExercises(exercise);
     }
 
     public void swap(Exercise exercise, Exercise newExercise) {

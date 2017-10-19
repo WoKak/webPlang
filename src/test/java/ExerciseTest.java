@@ -63,7 +63,7 @@ public class ExerciseTest {
 
         Exercise testExercise = new Exercise();
 
-        exerciseService.initializeExercise(testExercise);
+        exerciseService.initializeFirstExercise(testExercise);
         Assert.assertTrue(testExercise.getWords().size() == 20);
     }
 
@@ -76,7 +76,7 @@ public class ExerciseTest {
 
         Exercise testExercise = new Exercise();
 
-        exerciseService.initializeExercise(testExercise);
+        exerciseService.initializeFirstExercise(testExercise);
 
         Random random = new Random();
         Word randomWord = testExercise.getWords().get(random.nextInt(20));
@@ -95,7 +95,7 @@ public class ExerciseTest {
 
         Exercise testExercise = new Exercise();
 
-        exerciseService.initializeExercise(testExercise);
+        exerciseService.initializeFirstExercise(testExercise);
 
         Random random = new Random();
         Word randomWord = testExercise.getWords().get(random.nextInt(20));
