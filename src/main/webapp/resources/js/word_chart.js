@@ -1,29 +1,27 @@
 /**
- * Created by Michał on 2017-10-19.
+ * Created by Michał on 2017-10-20.
  */
 
 //script runs after submitting the criteria
-$("#criteria").submit(function (event) {
+$("#word_criteria").submit(function (event) {
 
     event.preventDefault();
-    searchWordsViaAjax();
+    searchWordViaAjax();
 });
 
 //AJAX request and its configuration
-function searchWordsViaAjax() {
+function searchWordViaAjax() {
 
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "/processCriteria?howMany="
-            + $("#how_many").val()
-            + "&order="
-            + $('input[name=order]:checked', '#criteria').val(),
+        url: "/processWordCriteria?word="
+        + $("#word").val(),
         dataType: 'json',
         timeout: 100000,
         success: function (data) {
             console.log("SUCCESS: ", data);
-            displayWordsResponse(data);
+            displayWordResponse(data);
         },
         error: function (e) {
             console.log("ERROR: ", e);
@@ -35,7 +33,7 @@ function searchWordsViaAjax() {
 }
 
 //function responsible for displaying data
-function displayWordsResponse(data) {
+function displayWordResponse(data) {
 
     clearCanvas();
 
@@ -43,15 +41,15 @@ function displayWordsResponse(data) {
 
     var ctx = document.getElementById('myChart').getContext('2d');
 
-    var myBarChart = new Chart(ctx, {
-        type: 'bar',
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
         data: {
-            labels: response.words,
+            labels: response.signatures,
             datasets: [{
-                label: "Wyniki w procentach",
-                backgroundColor: 'rgb(179, 204, 255)' ,
-                borderColor: 'rgb(102, 153, 255)',
-                data: response.percentages,
+                label: "wyniczki",
+                backgroundColor: ['rgb(204, 255, 153)', 'rgb(255, 128, 128)'] ,
+                borderColor: ['rgb(102, 204, 0)', 'rgb(204, 0, 0)'],
+                data: response.numbers,
             }]
         },
         options: {}

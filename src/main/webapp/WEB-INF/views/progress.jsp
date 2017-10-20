@@ -11,7 +11,7 @@
     <link rel="stylesheet"
           type="text/css"
           href="<c:url value="/resources/styles/progressStyle.css" />">
-    <script type="text/javascript" src="<c:url value="/resources/chartjs/Chart.bundle.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/chartjs/Chart.bundle.min.js" />"></script>
     <script type="text/javascript" src="<c:url value="/resources/jquery/jquery-3.2.1.min.js" />"></script>
     <style>
         body {
@@ -34,15 +34,21 @@
     <table>
         <tr>
             <td id="options_side">
-                <h4>Podaj kryteria do wykresu:</h4>
                 <form id="criteria">
+                    <h4>Kryteria do wykresu słówek:</h4>
                     <input id="how_many" type="text" autocomplete="off" placeholder="ile słówek?"/>
                     <br>
                     <p>
                         <input type="radio" name="order" value="desc">najlepiej umiem<br>
                         <input type="radio" name="order" value="asc">najsłabiej umiem<br>
                     </p>
-                    <input type="submit" id="ok_button" value="OK"/>
+                    <input type="submit" id="ok_button_words" value="OK"/>
+                </form>
+                <form id="word_criteria">
+                    <h4>Kryteria do wykresu słówka:</h4>
+                    <input id="word" type="text" autocomplete="off" placeholder="jakie słówko?"/>
+                    <br>
+                    <input type="submit" id="ok_button_word" value="OK"/>
                 </form>
             </td>
             <td id="canvas_side">
@@ -55,5 +61,6 @@
     <input type="submit" id="logout_button" value="Wyloguj"/>
 </form:form>
 <script type="text/javascript" src="/resources/js/progress.js"></script>
+<script type="text/javascript" src="/resources/js/word_chart.js"></script>
 </body>
 </html>

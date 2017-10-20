@@ -3,6 +3,7 @@ package webplang.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import webplang.domain.StatAnswerResponseBody;
+import webplang.domain.WordStatResponseBody;
 import webplang.repository.StatsRepository;
 
 import java.sql.SQLException;
@@ -22,7 +23,10 @@ public class StatsService {
     }
 
     public void processProgressForm(String howMany, String order, StatAnswerResponseBody result) throws SQLException{
+        this.statsRepository.processWords(howMany, order, result);
+    }
 
-        this.statsRepository.process(howMany, order, result);
+    public void processWordProgressForm(String word, WordStatResponseBody result) throws SQLException {
+        this.statsRepository.processWord(word, result);
     }
 }

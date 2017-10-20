@@ -1,7 +1,7 @@
 .info_box {
     border: 2px solid #000000;
     width: 1200px;
-    height: 500px;
+    height: 540px;
     margin: 20px auto 20px auto;
     background: #ffffff;
     border-radius: 1em 4em 1em 4em / 2em 1em 2em 1em;
@@ -13,8 +13,13 @@
 #options_side {
     width: 500px;
     height: 500px;
-    border-right: 5px solid #000c33;
+    border-right: 1px solid #000c33;
     font-family: "Comic Sans MS";
+    text-align: center;
+}
+
+#criteria {
+    border-bottom: 1px solid #000c33;
 }
 
 #canvas_side {
@@ -49,4 +54,52 @@
     font-family: "Comic Sans MS";
     font-size: large;
     margin: 20px;
+}
+
+#ok_button_word {
+    border: 8px solid #73a9ff;
+    border-radius: 25%;
+    background: white;
+    color: black;
+    width: 200px;
+    height: 50px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+    margin: 10px;
+}
+
+#ok_button_word:hover {
+    border: 8px solid #73a9ff;
+    border-radius: 25%;
+    background: #65a1c4;
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+    margin: 10px;
+}
+
+#ok_button_words {
+    border: 8px solid #73a9ff;
+    border-radius: 25%;
+    background: white;
+    color: black;
+    width: 200px;
+    height: 50px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+    margin: 10px;
+}
+
+#ok_button_words:hover {
+    border: 8px solid #73a9ff;
+    border-radius: 25%;
+    background: #65a1c4;
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-family: "Comic Sans MS";
+    font-size: large;
+    margin: 10px;
 }

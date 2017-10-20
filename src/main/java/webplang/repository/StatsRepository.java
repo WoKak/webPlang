@@ -2,6 +2,7 @@ package webplang.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import webplang.domain.StatAnswerResponseBody;
+import webplang.domain.WordStatResponseBody;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -22,7 +23,7 @@ public class StatsRepository {
         this.dataSource = dataSource;
     }
 
-    public void process(String howMany, String order, StatAnswerResponseBody result) throws SQLException{
+    public void processWords(String howMany, String order, StatAnswerResponseBody result) throws SQLException{
 
         ArrayList<String> labels = new ArrayList<>(0);
         ArrayList<Double> data = new ArrayList<>(0);
@@ -59,5 +60,36 @@ public class StatsRepository {
 
         result.setWords(labels);
         result.setPercentages(data);
+    }
+
+    public void processWord(String word, WordStatResponseBody result) throws SQLException{
+
+        ArrayList<String> labels = new ArrayList<>(0);
+        ArrayList<Integer> data = new ArrayList<>(0);
+
+        labels.add("dobre odpowiedzi");
+        labels.add("złe odpowiedzi");
+
+        Connection conn = dataSource.getConnection();
+        ResultSet resultSet;
+
+        String query = "SELECT s.num_correct, s.num_total, w.wordinpolish FROM stats s INNER JOIN words w" +
+                        " ON (s.id = w.id) WHERE w.wordinpolish = ?";
+
+        PreparedStatement prepStat;
+        prepStat = conn.prepareStatement(query);
+        prepStat.setString(1, word);
+        resultSet = prepStat.executeQuery();
+
+        while(resultSet.next()) {
+
+            data.add(resultSet.getInt(1));
+            int tmp = resultSet.getInt(2) - resultSet.getInt(1);
+            data.add(tmp);
+        }
+
+        result.setWord(word);
+        result.setSignatures(labels);
+        result.setNumbers(data);
     }
 }

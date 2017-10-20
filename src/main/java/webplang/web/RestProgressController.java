@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import webplang.domain.StatAnswerResponseBody;
 import webplang.domain.WordAnswerResponseBody;
+import webplang.domain.WordStatResponseBody;
 import webplang.service.StatsService;
 
 import java.sql.SQLException;
@@ -35,19 +36,39 @@ public class RestProgressController {
      */
     @JsonView(Views.Public.class)
     @RequestMapping(value = {"/processCriteria"}, method = RequestMethod.GET)
-    public StatAnswerResponseBody processAnswer(
+    public StatAnswerResponseBody processWordsStats(
             @RequestParam String howMany,
             @RequestParam String order,
             Model model)
             throws SQLException {
-
-        //System.out.println(howMany + " " + order);
 
         StatAnswerResponseBody result = new StatAnswerResponseBody();
 
         if (Optional.ofNullable(howMany).isPresent() && Optional.ofNullable(order).isPresent()) {
 
             this.statsService.processProgressForm(howMany, order, result);
+        }
+
+        return result;
+    }
+
+    /**
+     * Gets criteria from form
+     * @param model - model
+     * @return new answer created from form
+     */
+    @JsonView(Views.Public.class)
+    @RequestMapping(value = {"/processWordCriteria"}, method = RequestMethod.GET)
+    public WordStatResponseBody processWordStats(
+            @RequestParam String word,
+            Model model)
+            throws SQLException {
+
+        WordStatResponseBody result = new WordStatResponseBody();
+
+        if (Optional.ofNullable(word).isPresent()) {
+
+            this.statsService.processWordProgressForm(word, result);
         }
 
         return result;
