@@ -25,6 +25,7 @@ this is a web platform for learning language
 
 * Dynamical exercises testing knowledge of 20 words 
 * Adding words to database
+* Checking progress shown by charts
 
 ## To run this project you need:
 
