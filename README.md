@@ -29,7 +29,7 @@ this is a web platform for learning language
 
 ## To run this project you need:
 
-- PostgreSQL and proper table in database used by program
+- MySQL and proper tables in database used by program
 - database properties file
 - Tomacat server
 
