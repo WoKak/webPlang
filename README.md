@@ -9,7 +9,7 @@ this is a web platform for learning language
 * Spring MVC 4.2.2
 * Spring JDBC 4.2.2
 * Servlet API 3.1
-* PostgreSQL 9.6.2
+* MySQL
 * HSQLDB 2.3.4
 * JUnit 4.8.2
 * Spring Security 4.2.2
@@ -19,6 +19,7 @@ this is a web platform for learning language
 * AJAX
 * CSS
 * JSP
+* Chart.js
 
 ## Features
 
