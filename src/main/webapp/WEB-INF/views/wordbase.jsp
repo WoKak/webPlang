@@ -10,6 +10,9 @@
     <link rel="stylesheet"
           type="text/css"
           href="<c:url value="/resources/styles/aboutStyle.css" />">
+    <link rel="stylesheet"
+          type="text/css"
+          href="<c:url value="/resources/styles/appStyle.css" />">
     <style>
         body {
             background-image: url("../../resources/images/wordbase.jpg");
