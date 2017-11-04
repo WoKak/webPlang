@@ -29,9 +29,10 @@
     <p>
         Aplikacja powstaje od końca listopada 2016 r. Na początku był to prosty projekt Maven, nastepnie został
         rozbudowany o moduł prezentowania postępów, później powstawały kolejne części programu, takie jak: gui w javafx,
-        integracja z bazą danych, refaktoryzacja pod Java 8. Obecnie od marca 2017 r. całość jest przepisywana na
-        webPlang w oparciu
-        o framework Spring. Więcej informacji na
+        integracja z bazą danych, refaktoryzacja pod Java 8. Obecnie od marca 2017 r. całość została przepisana na
+        webPlang w oparciu o framework Spring z wykorzysatniem technologii, takich jak: ES6, jQuery, AJAX oraz Chart.js.
+        Rozwiniętych zostało wiele funkcjonalności, takich jak: wykresy postępów i analiza ćwiczeń. Obecnie rozwijany jest
+        moduł przeglądarki słówek z użyciem technologii React. Więcej informacji na
         <a href="https://github.com/WoKak/webPlang" style="text-decoration: none">
             stronie
         </a>.
