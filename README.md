@@ -20,7 +20,7 @@ this is a web platform for learning language
 * CSS
 * JSP
 * Chart.js
-* React
+* AngularJS
 
 ## Features
 

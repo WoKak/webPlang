@@ -11,9 +11,6 @@
     <link rel="stylesheet"
           type="text/css"
           href="<c:url value="/resources/styles/aboutStyle.css" />">
-    <link rel="stylesheet"
-          type="text/css"
-          href="<c:url value="/resources/styles/appStyle.css" />">
     <style>
         body {
             background-image: url("../../resources/images/wordbase.jpg");
@@ -23,8 +20,9 @@
             text-align: center;
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <head>
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+    </head>
 </head>
 <body>
 <h2>plang</h2>
@@ -38,11 +36,16 @@
         <li><a href=" <spring:url value="/about"/> ">o aplikacji</a></li>
     </ul>
 </nav>
-<div class="about_box" id="root">
+<div class="about_box" ng-app="viewer" ng-controller="guestController">
+    <label>Name:</label>
+    <input type = "text" ng-model = "guest.name" placeholder = "Jak masz na imię?">
+    <hr />
+
+    <h1>Witaj {{guest.getName()}}, niestety strona jest w budowie!</h1>
 </div>
 <form:form action="${'/logout'}" method="post">
     <input type="submit" id="logout_button" value="Wyloguj"/>
 </form:form>
-<script type="text/jsx" src="/resources/js/viewer/viewer.js"></script>
+<script src="/resources/js/viewer/viewer.js"></script>
 </body>
 </html>

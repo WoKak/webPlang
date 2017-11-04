@@ -32,7 +32,7 @@
         integracja z bazą danych, refaktoryzacja pod Java 8. Obecnie od marca 2017 r. całość została przepisana na
         webPlang w oparciu o framework Spring z wykorzysatniem technologii, takich jak: ES6, jQuery, AJAX oraz Chart.js.
         Rozwiniętych zostało wiele funkcjonalności, takich jak: wykresy postępów i analiza ćwiczeń. Obecnie rozwijany jest
-        moduł przeglądarki słówek z użyciem technologii React. Więcej informacji na
+        moduł przeglądarki słówek z użyciem technologii AngularJS. Więcej informacji na
         <a href="https://github.com/WoKak/webPlang" style="text-decoration: none">
             stronie
         </a>.

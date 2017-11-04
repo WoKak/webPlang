@@ -2,12 +2,15 @@
  * Created by Michał on 2017-11-01.
  */
 
-class Hello extends React.Component {
-    render() {
-        return (
-            <p>{this.props.msg}</p>
-        );
-    }
-}
+var mainApp = angular.module("viewer", []);
 
-React.render(<Hello msg="Strona w budowie / Page under construction"/>, document.getElementById('root'));
+mainApp.controller('guestController', function($scope) {
+    $scope.guest = {
+        name: "Nieznajomy",
+
+        getName: function() {
+            var studentObject;
+            return $scope.guest.name;
+        }
+    };
+});
