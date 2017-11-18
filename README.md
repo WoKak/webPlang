@@ -9,7 +9,7 @@ this is a web platform for learning language
 * Spring MVC 4.2.2
 * Spring JDBC 4.2.2
 * Servlet API 3.1
-* PostgreSQL 9.6.2
+* MySQL
 * HSQLDB 2.3.4
 * JUnit 4.8.2
 * Spring Security 4.2.2
@@ -19,15 +19,18 @@ this is a web platform for learning language
 * AJAX
 * CSS
 * JSP
+* Chart.js
+* AngularJS
 
 ## Features
 
 * Dynamical exercises testing knowledge of 20 words 
 * Adding words to database
+* Checking progress shown by charts
 
 ## To run this project you need:
 
-- PostgreSQL and proper table in database used by program
+- MySQL and proper tables in database used by program
 - database properties file
 - Tomacat server
 
