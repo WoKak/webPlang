@@ -35,7 +35,6 @@ public class AnswerService {
 
     /**
      * Used for processing main application form - uses checkAnswer method
-     *
      * @param userAnswer - what user typed
      * @param exercise   - current exercise
      * @param apc        - controller information about current exercise
@@ -79,7 +78,6 @@ public class AnswerService {
 
     /**
      * Handles the main application exceptions
-     *
      * @param apc - controller information about current exercise
      * @return model and view of the exception page
      */

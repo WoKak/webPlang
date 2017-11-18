@@ -5,6 +5,7 @@ import webplang.web.Views;
 
 /**
  * Created by Michał on 2017-09-02.
+ * Class used for exchanging data between browser and server's code
  */
 public class WordAnswerResponseBody {
 

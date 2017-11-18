@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by Michał on 2017-10-19.
+ * Class used to pass info about stats
  */
 public class StatAnswerResponseBody {
 

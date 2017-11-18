@@ -32,7 +32,7 @@ public class ExerciseTest {
     public static void setUpDB() {
         db = new EmbeddedDatabaseBuilder()
                 .setName("test")
-                .setType(EmbeddedDatabaseType.HSQL)
+                .setType(EmbeddedDatabaseType.DERBY)
                 .addScript("db-schema.sql")
                 .build();
 

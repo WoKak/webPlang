@@ -1,5 +1,3 @@
-DELETE FROM words;
-
 INSERT INTO words VALUES(1, 'gruszka', 'peach');
 INSERT INTO words VALUES(2, 'mysz', 'mouse');
 INSERT INTO words VALUES(3,	'dusza', 'soul');
@@ -28,3 +26,32 @@ INSERT INTO words VALUES(26,	'kawa', 'coffee');
 INSERT INTO words VALUES(27,	'sukienka', 'dress');
 INSERT INTO words VALUES(28,	'dres', 'tracksuit');
 INSERT INTO words VALUES(29,	'garnitur', 'suit');
+
+INSERT INTO stats VALUES(1, 0, 1);
+INSERT INTO stats VALUES(2, 0, 1);
+INSERT INTO stats VALUES(3, 0, 1);
+INSERT INTO stats VALUES(4, 0, 1);
+INSERT INTO stats VALUES(5, 0, 1);
+INSERT INTO stats VALUES(6, 0, 1);
+INSERT INTO stats VALUES(7, 0, 1);
+INSERT INTO stats VALUES(8, 0, 1);
+INSERT INTO stats VALUES(9, 0, 1);
+INSERT INTO stats VALUES(10, 0, 1);
+INSERT INTO stats VALUES(12, 0, 1);
+INSERT INTO stats VALUES(13, 0, 1);
+INSERT INTO stats VALUES(14, 0, 1);
+INSERT INTO stats VALUES(15, 0, 1);
+INSERT INTO stats VALUES(16, 0, 1);
+INSERT INTO stats VALUES(17, 0, 1);
+INSERT INTO stats VALUES(18, 0, 1);
+INSERT INTO stats VALUES(19, 0, 1);
+INSERT INTO stats VALUES(20, 0, 1);
+INSERT INTO stats VALUES(21, 0, 1);
+INSERT INTO stats VALUES(22, 0, 1);
+INSERT INTO stats VALUES(23, 0, 1);
+INSERT INTO stats VALUES(24, 0, 1);
+INSERT INTO stats VALUES(25, 0, 1);
+INSERT INTO stats VALUES(26, 0, 1);
+INSERT INTO stats VALUES(27, 0, 1);
+INSERT INTO stats VALUES(28, 0, 1);
+INSERT INTO stats VALUES(29, 0, 1);

@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * Overrides method from basic class in order to set up test user
+     * Overrides method from basic class and configures auth method
      * @param auth
      * @throws Exception
      */

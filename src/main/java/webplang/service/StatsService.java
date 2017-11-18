@@ -10,8 +10,8 @@ import java.sql.SQLException;
 
 /**
  * Created by Michał on 2017-10-19.
+ * Service for REST progress controller
  */
-
 @Service
 public class StatsService {
 

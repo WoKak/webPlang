@@ -24,6 +24,12 @@ public class WordRepository {
         this.dataSource = dataSource;
     }
 
+    /**
+     * method adds new word to database (if it is proper)
+     * @param wordToAdd
+     * @param bindingResult - info about errors
+     * @throws SQLException
+     */
     public void addWord(Word wordToAdd, BindingResult bindingResult) throws SQLException {
 
 
@@ -68,6 +74,11 @@ public class WordRepository {
         pstatStats.executeUpdate();
     }
 
+    /**
+     * method used for creating first exercise (doesn't rely on stats)
+     * @param exercise - exercise to be created
+     * @throws SQLException
+     */
     public void initializeFirstExercise(Exercise exercise) throws SQLException{
 
         ArrayList<Integer> alreadyInExercise = new ArrayList<Integer>(0);
@@ -131,6 +142,11 @@ public class WordRepository {
 
     }
 
+    /**
+     * method used for creation later exercises (relies on stats)
+     * @param exercise - exercise to be created
+     * @throws SQLException
+     */
     public void initializeLaterExercises(Exercise exercise) throws SQLException {
 
         Connection conn = dataSource.getConnection();
@@ -170,6 +186,11 @@ public class WordRepository {
         }
     }
 
+    /**
+     * method which updates stats for particular word
+     * @param wordInPolish - word which stats should be updated
+     * @throws SQLException
+     */
     public void updateStats(String wordInPolish) throws SQLException {
 
         Connection conn = dataSource.getConnection();
@@ -201,5 +222,4 @@ public class WordRepository {
         pstatUpdate.setInt(2, id);
         pstatUpdate.executeUpdate();
     }
-
 }

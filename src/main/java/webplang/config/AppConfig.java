@@ -71,9 +71,6 @@ public class AppConfig {
         return new AppInfo();
     }
 
-    /**
-     * Encoder bean
-     */
     @Bean
     public PasswordEncoder passwordEncoder(){
 

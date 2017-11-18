@@ -23,6 +23,13 @@ public class StatsRepository {
         this.dataSource = dataSource;
     }
 
+    /**
+     * method used for returning best/least known words
+     * @param howMany - number of words returned in response
+     * @param order - asc/desc
+     * @param result - class which will be mapped to JSON response
+     * @throws SQLException
+     */
     public void processWords(String howMany, String order, StatAnswerResponseBody result) throws SQLException{
 
         ArrayList<String> labels = new ArrayList<>(0);
@@ -62,6 +69,12 @@ public class StatsRepository {
         result.setPercentages(data);
     }
 
+    /**
+     * method used for returning stats of particular word
+     * @param word - which word
+     * @param result - class which will be mapped to JSON response
+     * @throws SQLException
+     */
     public void processWord(String word, WordStatResponseBody result) throws SQLException{
 
         ArrayList<String> labels = new ArrayList<>(0);

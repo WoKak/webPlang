@@ -10,7 +10,6 @@ import webplang.repository.UserRepository;
  * Created by Michał on 2017-07-26.
  * Service for RegistrationController
  */
-
 @Service
 public class UserToRegisterService {
 

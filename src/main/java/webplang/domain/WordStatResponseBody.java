@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by Michał on 2017-10-20.
+ * Class used to pass info about stats of the particular word
  */
 public class WordStatResponseBody {
 

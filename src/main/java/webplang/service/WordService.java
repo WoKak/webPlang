@@ -13,7 +13,6 @@ import java.sql.SQLException;
 /**
  * Created by Michał on 2017-04-01.
  */
-
 @Service
 public class WordService {
 

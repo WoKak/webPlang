@@ -1,8 +1,13 @@
-DROP TABLE words
-IF EXISTS;
-
 CREATE TABLE words (
-    id integer,
-    wordinpolish character(50),
-    wordinenglish character(50)
+    id INTEGER NOT NULL,
+    wordinpolish VARCHAR(50) NOT NULL,
+    wordinenglish VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
 );
+
+CREATE TABLE stats (
+  id INTEGER NOT NULL,
+  num_correct INTEGER NOT NULL,
+  num_total INTEGER NOT NULL,
+  FOREIGN KEY (id) REFERENCES words(id)
+)
