@@ -24,6 +24,7 @@
         <li><a href=" <spring:url value="/application"/> ">aplikacja</a></li>
         <li><a href=" <spring:url value="/addWord"/> ">dodaj słówko</a></li>
         <li><a href=" <spring:url value="/progress"/> ">postępy</a></li>
+        <li><a href=" <spring:url value="/wordbase"/> ">baza słówek</a></li>
         <li><a href=" <spring:url value="/about"/> ">o aplikacji</a></li>
     </ul>
 </nav>

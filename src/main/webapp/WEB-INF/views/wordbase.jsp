@@ -1,8 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
 <html>
 <head>
     <title>plang</title>
@@ -11,12 +10,19 @@
           href="<c:url value="/resources/styles/homeStyle.css" />">
     <link rel="stylesheet"
           type="text/css"
-          href="<c:url value="/resources/styles/appStyle.css" />">
+          href="<c:url value="/resources/styles/aboutStyle.css" />">
     <style>
         body {
-            background-image: url("../../resources/images/add.jpg");
+            background-image: url("../../resources/images/wordbase.jpg");
+        }
+
+        .about_box p {
+            text-align: center;
         }
     </style>
+    <head>
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+    </head>
 </head>
 <body>
 <h2>plang</h2>
@@ -30,26 +36,16 @@
         <li><a href=" <spring:url value="/about"/> ">o aplikacji</a></li>
     </ul>
 </nav>
-<div class="application_box">
-    <div class="word_in_polish">
-        <label>Wprowadź słówko do dodania do bazy danych.</label>
-    </div>
-    <form:form modelAttribute="wordToAdd">
-        <div class="form-group">
-            <label for="wordInPolish">PL:</label>
-            <form:input id="wordInPolish" path="wordInPolish" type="text"/>
-        </div>
-        <div class="form-group">
-            <label for="wordInEnglish">EN:</label>
-            <form:input id="wordInEnglish" path="wordInEnglish" type="text"/>
-        </div>
-        <div class="form-group">
-            <input type="submit" id="ok_button" value="OK"/>
-        </div>
-    </form:form>
+<div class="about_box" ng-app="viewer" ng-controller="guestController">
+    <label>Name:</label>
+    <input type = "text" ng-model = "guest.name" placeholder = "Jak masz na imię?">
+    <hr />
+
+    <h1>Witaj {{guest.getName()}}, niestety strona jest w budowie!</h1>
 </div>
 <form:form action="${'/logout'}" method="post">
     <input type="submit" id="logout_button" value="Wyloguj"/>
 </form:form>
+<script src="/resources/js/viewer/viewer.js"></script>
 </body>
 </html>
